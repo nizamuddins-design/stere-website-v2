@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/colors_and_type.css">
+  <link rel="stylesheet" href="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/styles.css">
+  <script src="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/_ds_bundle.js"></script>
+  <script src="./doc-page.js"></script>
+  <style>
+    body { margin:0; background:var(--bg-page); color:var(--fg-default); -webkit-font-smoothing:antialiased; }
+    * { box-sizing:border-box; }
+    a { color:var(--brand-electric); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    doc-page:not(:defined) { visibility:hidden; }
+  </style>
+</helmet>
+
+<doc-page margin="0.75in">
+
+  <div style="display:flex;align-items:center;gap:10px;margin:0 0 28px;">
+    <span style="display:inline-block;width:19px;height:24px;background:var(--fg-default);-webkit-mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+    <span style="font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-0.03em;color:var(--fg-default);">Stere</span>
+    <span style="margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--fg-subtle);text-transform:uppercase;letter-spacing:.12em;">Launch guide</span>
+  </div>
+
+  <h1 style="font-family:var(--font-display);font-weight:700;font-size:36px;line-height:1.08;letter-spacing:-0.03em;margin:0 0 14px;color:var(--fg-default);">Taking the new site live</h1>
+  <p style="font-size:15.5px;line-height:1.6;color:var(--fg-muted);margin:0 0 32px;max-width:60ch;">A plain-English guide to replacing the current Webflow site with the new one. No coding knowledge assumed. Budget about half a day, plus a day of waiting for the domain to switch over.</p>
+
+  <div style="break-inside:avoid;padding:20px 22px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-subtle);margin:0 0 34px;">
+    <p style="font-size:14px;line-height:1.6;color:var(--fg-default);margin:0;"><strong>Read this first.</strong> What we designed together is a complete, working set of pages — but it is a <em>design</em>, not yet a hosted website. Publishing it means putting the files on a web host and pointing stere.io at them. That is what this guide walks through.</p>
+  </div>
+
+  <h2 style="font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">Step 0 · Choose your route</h2>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 18px;">There are three sensible ways to go live. Pick one before doing anything else.</p>
+
+  <div style="break-inside:avoid;display:flex;gap:14px;padding:20px 22px;border:1px solid var(--brand-electric);border-radius:12px;background:var(--electric-50);margin:0 0 14px;">
+    <span style="flex:none;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--brand-electric);padding-top:2px;">A</span>
+    <div>
+      <p style="font-size:15px;font-weight:600;color:var(--fg-default);margin:0 0 6px;">Publish the design as-is on a simple host <span style="font-weight:400;color:var(--brand-electric);">— recommended to start</span></p>
+      <p style="font-size:14px;line-height:1.6;color:var(--fg-muted);margin:0;">Fastest and cheapest. You can be live this week. Best when you want the new site up now and will refine later. Downside: to change wording you come back to this project and re-publish, rather than editing in a CMS.</p>
+    </div>
+  </div>
+  <div style="break-inside:avoid;display:flex;gap:14px;padding:20px 22px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-elevated);margin:0 0 14px;">
+    <span style="flex:none;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--fg-subtle);padding-top:2px;">B</span>
+    <div>
+      <p style="font-size:15px;font-weight:600;color:var(--fg-default);margin:0 0 6px;">Have a developer rebuild it properly</p>
+      <p style="font-size:14px;line-height:1.6;color:var(--fg-muted);margin:0;">Best long-term: faster pages, better SEO, a real content system. Takes one to three weeks of developer time. Use the pages here as the exact specification.</p>
+    </div>
+  </div>
+  <div style="break-inside:avoid;display:flex;gap:14px;padding:20px 22px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-elevated);margin:0 0 32px;">
+    <span style="flex:none;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--fg-subtle);padding-top:2px;">C</span>
+    <div>
+      <p style="font-size:15px;font-weight:600;color:var(--fg-default);margin:0 0 6px;">Rebuild it inside Webflow</p>
+      <p style="font-size:14px;line-height:1.6;color:var(--fg-muted);margin:0;">Keeps your existing Webflow subscription, editing workflow and domain setup. Someone comfortable in Webflow re-creates these pages there. No DNS changes needed at all.</p>
+    </div>
+  </div>
+
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 34px;"><strong style="color:var(--fg-default);">The rest of this guide covers Route A</strong>, since it is the one you can do yourself. If you choose B or C, skip to <em>&ldquo;Handing this to someone else&rdquo;</em> near the end.</p>
+
+  <h2 style="break-before:page;font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">Step 1 · Fix the things that only matter once real people visit</h2>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 16px;">Three things on the site look finished but are not yet connected to anything. Sort these before launch, not after.</p>
+
+  <div style="break-inside:avoid;margin:0 0 16px;padding:18px 20px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-elevated);">
+    <p style="font-size:14.5px;font-weight:600;color:var(--fg-default);margin:0 0 6px;">1. The forms don&rsquo;t send anywhere yet</p>
+    <p style="font-size:14px;line-height:1.6;color:var(--fg-muted);margin:0 0 10px;">The Contact form and the Request-a-demo form show a &ldquo;thank you&rdquo; message, but nothing reaches your inbox. Sign up for a free form service — <strong>Formspree</strong> and <strong>Basin</strong> are the easiest — and they will give you a short web address to paste in. Ask me to wire it up and I&rsquo;ll do it in a few minutes.</p>
+    <p style="font-size:13.5px;line-height:1.55;color:var(--fg-subtle);margin:0;">Your Google Calendar demo booking link already works and needs nothing.</p>
+  </div>
+  <div style="break-inside:avoid;margin:0 0 16px;padding:18px 20px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-elevated);">
+    <p style="font-size:14.5px;font-weight:600;color:var(--fg-default);margin:0 0 6px;">2. There is no analytics yet</p>
+    <p style="font-size:14px;line-height:1.6;color:var(--fg-muted);margin:0;">If you want to see visitor numbers, create a <strong>Google Analytics</strong> or <strong>Plausible</strong> account, copy the tracking snippet they give you, and send it to me to add to every page.</p>
+  </div>
+  <div style="break-inside:avoid;margin:0 0 32px;padding:18px 20px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-elevated);">
+    <p style="font-size:14.5px;font-weight:600;color:var(--fg-default);margin:0 0 6px;">3. A few links are still placeholders</p>
+    <p style="font-size:14px;line-height:1.6;color:var(--fg-muted);margin:0;">The Insights articles link to the Insights page rather than to real articles, and the Service Status link points at a status page that may not exist yet. Decide whether to write those articles, hide the section, or point the links elsewhere.</p>
+  </div>
+
+  <h2 style="font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">Step 2 · Get the website files</h2>
+  <ol style="margin:0 0 32px;padding-left:20px;display:flex;flex-direction:column;gap:12px;">
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Ask me to <strong style="color:var(--fg-default);">export the site as standalone files</strong>. I&rsquo;ll produce one self-contained file per page — home, platform, each solutions page, about, insights, contact, demo, and the four legal pages — with all images and styling baked in.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">I&rsquo;ll rename them to normal web addresses — <span style="font-family:var(--font-mono);font-size:13px;">index.html</span> for the home page, <span style="font-family:var(--font-mono);font-size:13px;">platform.html</span>, <span style="font-family:var(--font-mono);font-size:13px;">mgas.html</span> and so on — so your URLs look clean.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Download the whole set as a single ZIP folder and save it somewhere you&rsquo;ll find again. <strong style="color:var(--fg-default);">Do not unzip it yet.</strong></li>
+  </ol>
+
+  <h2 style="font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">Step 3 · Put the files on a host</h2>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 16px;">We&rsquo;ll use <strong style="color:var(--fg-default);">Netlify</strong>. It is free for a site like this, and publishing is literally dragging a folder onto a web page.</p>
+  <ol style="margin:0 0 20px;padding-left:20px;display:flex;flex-direction:column;gap:12px;">
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Go to <span style="font-family:var(--font-mono);font-size:13px;">netlify.com</span> and click <strong style="color:var(--fg-default);">Sign up</strong>. Use your work email or a Google account. Choose the free plan.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Once you&rsquo;re signed in you&rsquo;ll see a dashboard with a large dashed box that says something like <em>&ldquo;Drag and drop your site output folder here&rdquo;</em>.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Unzip the folder from Step 2, then drag the unzipped folder into that box. Wait about thirty seconds.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Netlify gives you a temporary address like <span style="font-family:var(--font-mono);font-size:13px;">gentle-otter-4821.netlify.app</span>. <strong style="color:var(--fg-default);">Open it and click through every page.</strong> This is your new site, live on the internet — just not on your domain yet.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Share that temporary link with colleagues for review. Nothing about stere.io has changed at this point, so there is zero risk.</li>
+  </ol>
+  <div style="break-inside:avoid;padding:18px 20px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-subtle);margin:0 0 32px;">
+    <p style="font-size:14px;line-height:1.6;color:var(--fg-default);margin:0;"><strong>Stop here until everyone is happy.</strong> Everything so far is reversible and invisible to the public. The next step is the one that changes what visitors see.</p>
+  </div>
+
+  <h2 style="break-before:page;font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">Step 4 · Before you touch the domain</h2>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 16px;">Two safety measures. Both take five minutes and both save you from a bad afternoon.</p>
+  <ol style="margin:0 0 20px;padding-left:20px;display:flex;flex-direction:column;gap:12px;">
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;"><strong style="color:var(--fg-default);">Back up the old site.</strong> In Webflow, use <em>Export code</em> if your plan allows, or simply take full-page screenshots of every page. If you ever need to go back, you&rsquo;ll want a record.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;"><strong style="color:var(--fg-default);">Photograph your current DNS settings.</strong> Log in to wherever your domain is registered (GoDaddy, Namecheap, Google Domains, Cloudflare — whoever you pay for stere.io). Find the page called <em>DNS</em> or <em>DNS records</em> and screenshot the entire list. This is your undo button.</li>
+  </ol>
+  <div style="break-inside:avoid;padding:20px 22px;border:1px solid var(--status-pending-fg);border-radius:12px;background:var(--status-pending-bg);margin:0 0 32px;">
+    <p style="font-size:14px;line-height:1.6;color:var(--fg-default);margin:0;"><strong>Critical: do not delete your MX records.</strong> Those lines are what deliver your company email. You will be changing only the records named <span style="font-family:var(--font-mono);font-size:13px;">A</span>, <span style="font-family:var(--font-mono);font-size:13px;">CNAME</span> or <span style="font-family:var(--font-mono);font-size:13px;">ALIAS</span> for <span style="font-family:var(--font-mono);font-size:13px;">@</span> and <span style="font-family:var(--font-mono);font-size:13px;">www</span>. Leave every <span style="font-family:var(--font-mono);font-size:13px;">MX</span> and <span style="font-family:var(--font-mono);font-size:13px;">TXT</span> record exactly as it is.</p>
+  </div>
+
+  <h2 style="font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">Step 5 · Point stere.io at the new site</h2>
+  <ol style="margin:0 0 20px;padding-left:20px;display:flex;flex-direction:column;gap:12px;">
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">In Netlify, open your site and go to <strong style="color:var(--fg-default);">Domain management → Add a domain</strong>. Type <span style="font-family:var(--font-mono);font-size:13px;">stere.io</span> and confirm you own it.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Netlify will show you exactly which DNS records to create — typically one <span style="font-family:var(--font-mono);font-size:13px;">A</span> record for the bare domain and one <span style="font-family:var(--font-mono);font-size:13px;">CNAME</span> for <span style="font-family:var(--font-mono);font-size:13px;">www</span>. <strong style="color:var(--fg-default);">Keep this screen open.</strong></li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">In your domain registrar&rsquo;s DNS page, find the existing records pointing at Webflow (Webflow&rsquo;s addresses usually start with <span style="font-family:var(--font-mono);font-size:13px;">75.2.</span> or end in <span style="font-family:var(--font-mono);font-size:13px;">.webflow.io</span>). Edit those two records to the values Netlify gave you. Do not add duplicates — edit in place.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Save. Then go back to Webflow and, under your project&rsquo;s hosting settings, <strong style="color:var(--fg-default);">remove stere.io as a custom domain</strong> so the two systems don&rsquo;t fight over it.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Wait. The change usually takes fifteen minutes to two hours, occasionally up to a day. During the wait, some people may still see the old site — that is normal and temporary.</li>
+    <li style="font-size:15px;line-height:1.65;color:var(--fg-muted);orphans:3;widows:3;">Back in Netlify, check that the padlock — <strong style="color:var(--fg-default);">HTTPS / SSL certificate</strong> — shows as issued. It is automatic and free, but can take an hour after DNS resolves. If it hasn&rsquo;t appeared after a few hours, click <em>Renew certificate</em>.</li>
+  </ol>
+
+  <h2 style="font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">Step 6 · Launch-day checks</h2>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 16px;">Once <span style="font-family:var(--font-mono);font-size:13px;">stere.io</span> shows the new site, walk this list:</p>
+  <ul style="list-style:none;margin:0 0 32px;padding:0;display:flex;flex-direction:column;gap:10px;">
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);break-inside:avoid;"><span style="flex:none;width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:3px;margin-top:4px;"></span><span>The address bar shows a padlock and <span style="font-family:var(--font-mono);font-size:13px;">https://</span></span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);break-inside:avoid;"><span style="flex:none;width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:3px;margin-top:4px;"></span><span>Both <span style="font-family:var(--font-mono);font-size:13px;">stere.io</span> and <span style="font-family:var(--font-mono);font-size:13px;">www.stere.io</span> work</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);break-inside:avoid;"><span style="flex:none;width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:3px;margin-top:4px;"></span><span>Every navigation link and every footer link opens the right page</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);break-inside:avoid;"><span style="flex:none;width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:3px;margin-top:4px;"></span><span>The site looks right on your phone, not just your laptop</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);break-inside:avoid;"><span style="flex:none;width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:3px;margin-top:4px;"></span><span>Submit the contact form yourself and confirm the message arrives</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);break-inside:avoid;"><span style="flex:none;width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:3px;margin-top:4px;"></span><span>Book a test slot through the demo page and check it lands in your calendar</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);break-inside:avoid;"><span style="flex:none;width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:3px;margin-top:4px;"></span><span>Send yourself an email at your company address to confirm mail still flows</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);break-inside:avoid;"><span style="flex:none;width:14px;height:14px;border:1.5px solid var(--border-strong);border-radius:3px;margin-top:4px;"></span><span>If your old site had pages at addresses that no longer exist, ask me to set up redirects so old links don&rsquo;t break</span></li>
+  </ul>
+
+  <h2 style="break-before:page;font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">If something goes wrong</h2>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 16px;">Nothing here is permanent. To go back to the Webflow site: re-add stere.io as a custom domain in Webflow, then restore the DNS records from the screenshot you took in Step 4. Within a couple of hours the old site is back.</p>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 32px;"><strong style="color:var(--fg-default);">Keep your Webflow subscription running for at least a month after launch.</strong> It is cheap insurance while the new site settles.</p>
+
+  <h2 style="font-family:var(--font-display);font-weight:600;font-size:23px;letter-spacing:-0.022em;margin:0 0 14px;color:var(--fg-default);">Handing this to someone else</h2>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 16px;">If you go with Route B or C, this is what the person needs from you:</p>
+  <ul style="list-style:none;margin:0 0 32px;padding:0;display:flex;flex-direction:column;gap:11px;">
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Access to this project, which contains every page as the definitive design</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>The brand assets folder — logo files and client logos</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Login access to the domain registrar, and to Webflow if they are rebuilding there</span></li>
+    <li style="display:flex;gap:11px;font-size:15px;line-height:1.6;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>A note that the legal pages — Terms of Use, Privacy Policy, Master Agreement, Information &amp; Security — should be reviewed by your counsel before launch</span></li>
+  </ul>
+  <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 32px;">I can also produce a developer handoff package with the code and structure spelled out — just ask.</p>
+
+  <div style="break-inside:avoid;padding:24px 26px;border:1px solid var(--border-default);border-radius:14px;background:var(--bg-elevated);">
+    <p style="font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-0.02em;color:var(--fg-default);margin:0 0 10px;">What to ask me for next</p>
+    <p style="font-size:14.5px;line-height:1.65;color:var(--fg-muted);margin:0;">Say the word and I&rsquo;ll do any of these: export the standalone files, wire the forms to a real inbox, add your analytics code, set up redirects from old page addresses, or prepare the developer handoff package.</p>
+  </div>
+
+</doc-page>
+</x-dc>
+</body>
+</html>

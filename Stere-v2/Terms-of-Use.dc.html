@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/colors_and_type.css">
+  <link rel="stylesheet" href="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/styles.css">
+  <script src="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/_ds_bundle.js"></script>
+  <style>
+    body { margin:0; background:var(--bg-page); color:var(--fg-default); -webkit-font-smoothing:antialiased; }
+    * { box-sizing:border-box; }
+    a { color:var(--fg-accent); text-decoration:none; }
+    a:hover { text-decoration:none; }
+    @keyframes stere-pulse { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)} 70%{box-shadow:0 0 0 7px rgba(16,185,129,0)} 100%{box-shadow:0 0 0 0 rgba(16,185,129,0)} }
+    @keyframes stere-drift-a { 0%,100%{transform:translate(-6%,-4%) scale(1);} 50%{transform:translate(9%,7%) scale(1.18);} }
+    @keyframes stere-drift-b { 0%,100%{transform:translate(7%,8%) scale(1.12);} 50%{transform:translate(-9%,-7%) scale(1);} }
+    @keyframes stere-grid-drift { from{background-position:0 0;} to{background-position:0 46px;} }
+    @keyframes stere-scan { 0%{opacity:.0;transform:translateY(-30px);} 40%{opacity:.5;} 100%{opacity:0;transform:translateY(120px);} }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Stere Site Terms of Use","about":"Terms and conditions governing access to and use of the Stere website.","dateModified":"2026-05-10","publisher":{"@type":"Organization","name":"Stere, Inc.","url":"https://stere.io"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Stere","url":"https://stere.io","hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"SOC 2"},{"@type":"EducationalOccupationalCredential","credentialCategory":"ISO 27001:2022"}]}</script>
+</helmet>
+
+<div style="font-family:var(--font-sans);">
+
+  <header ref="{{ headerRef }}" style="position:sticky;top:0;z-index:60;background:transparent;border-bottom:1px solid transparent;transition:background var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),backdrop-filter var(--dur-base) var(--ease-out);">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:66px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;color:var(--fg-default);">
+        <span style="display:inline-block;width:22px;height:28px;background:var(--fg-default);-webkit-mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.03em;">Stere</span>
+      </a>
+
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:4px;">
+        <a href="Platform.dc.html" style="color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Platform</a>
+
+        <div style="position:relative;" onMouseEnter="{{ openSolutions }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Home.dc.html#solutions" style="display:inline-flex;align-items:center;gap:5px;color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Solutions
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <sc-if value="{{ solutionsOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;padding-top:6px;"><div style="width:288px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;">
+            <a href="MGAs.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">MGAs<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">The turnkey SaaS core</span></a>
+            <a href="MGA-Aggregators.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">MGA Aggregators<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">A shared technology core</span></a>
+            <a href="Carriers.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Carriers<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Wrap legacy cores, launch digital</span></a>
+            <a href="Mutuals.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Mutuals<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Modernize without disruption</span></a>
+            <a href="Distribution-Platforms.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Distribution Platforms<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Connect once, scale infinitely</span></a>
+            <a href="Autonomous-Agents.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Autonomous Agents<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Built for A2A workflows</span></a>
+          </div></div>
+          </sc-if>
+        </div>
+
+        <div style="position:relative;" onMouseEnter="{{ openCompany }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Home.dc.html#company" style="display:inline-flex;align-items:center;gap:5px;color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Company
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <sc-if value="{{ companyOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;padding-top:6px;"><div style="width:220px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;">
+            <a href="Insights.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Insights</a>
+            <a href="About-Us.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">About us</a>
+            <a href="Contact.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Contact us</a>
+          </div></div>
+          </sc-if>
+        </div>
+      </nav>
+      </sc-if>
+
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="Demo.dc.html" style="display:inline-flex;align-items:center;gap:7px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:14.5px;padding:11px 18px;border-radius:6px;box-shadow:var(--shadow-sm);transition:transform var(--dur-fast) var(--ease-out);" style-hover="transform:translateY(-1px);">Request a demo</a>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMobile }}" aria-label="Menu" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--border-default);background:var(--bg-page);color:var(--fg-default);border-radius:8px;cursor:pointer;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="width:20px;height:20px;"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+
+    <sc-if value="{{ mobileMenu }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile" style="border-top:1px solid var(--border-default);padding:12px clamp(20px,5vw,48px) 20px;display:flex;flex-direction:column;gap:2px;background:var(--bg-page);">
+      <a href="Platform.dc.html" style="padding:11px 8px;color:var(--fg-default);font-weight:600;font-size:15px;">Platform</a>
+      <span style="padding:12px 8px 4px;font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);">Solutions</span>
+      <a href="MGAs.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">MGAs</a>
+      <a href="MGA-Aggregators.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">MGA Aggregators</a>
+      <a href="Carriers.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Carriers</a>
+      <a href="Mutuals.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Mutuals</a>
+      <a href="Distribution-Platforms.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Distribution Platforms</a>
+      <a href="Autonomous-Agents.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Autonomous Agents</a>
+      <span style="padding:12px 8px 4px;font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);">Company</span>
+      <a href="Insights.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Insights</a>
+      <a href="About-Us.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">About us</a>
+      <a href="Contact.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Contact us</a>
+    </nav>
+    </sc-if>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section style="position:relative;overflow:hidden;background:var(--gradient-mesh);border-bottom:1px solid var(--border-default);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,7vw,88px) clamp(20px,5vw,48px) clamp(36px,4.5vw,56px);">
+        <p style="font:var(--type-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--fg-accent);margin:0 0 18px;">Legal</p>
+        <h1 style="font-family:var(--font-display);font-weight:700;font-size:clamp(32px,4.4vw,52px);line-height:1.06;letter-spacing:-0.032em;color:var(--fg-default);margin:0;">Site Terms of Use</h1>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:22px 0 0;">
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border-default);border-radius:999px;background:var(--bg-elevated);font:var(--type-mono-sm);color:var(--fg-muted);">Last updated May 10, 2026</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border-default);border-radius:999px;background:var(--bg-elevated);font:var(--type-mono-sm);color:var(--fg-muted);">Stere, Inc.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO + BODY -->
+    <section aria-label="Site Terms of Use" style="background:var(--bg-page);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,48px) clamp(56px,7vw,96px);display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,64px);align-items:flex-start;">
+
+        <aside style="flex:0 1 240px;min-width:0;position:{{ asidePos }};top:86px;">
+          <p style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 12px;">Contents</p>
+          <nav aria-label="Section navigation" style="display:flex;flex-direction:column;gap:2px;">
+            <a href="#changes" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">1</span><span>Changes to these Site Terms</span></a>
+            <a href="#additional" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">2</span><span>Additional terms</span></a>
+            <a href="#privacy" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">3</span><span>Privacy</span></a>
+            <a href="#content" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">4</span><span>Stere content</span></a>
+            <a href="#using" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">5</span><span>Using the Site</span></a>
+            <a href="#links" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">6</span><span>Links to other websites and services</span></a>
+            <a href="#disclaimer" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">7</span><span>Disclaimer of warranties & limitations of liability</span></a>
+            <a href="#indemnification" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">8</span><span>Indemnification</span></a>
+            <a href="#governing-law" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">9</span><span>Governing law; dispute resolution</span></a>
+            <a href="#electronic" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">10</span><span>Electronic contracting</span></a>
+            <a href="#no-sale" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">11</span><span>No sale, solicitation or negotiation of insurance or reinsurance</span></a>
+            <a href="#geographic" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">12</span><span>Geographic restrictions</span></a>
+            <a href="#termination" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">13</span><span>Termination</span></a>
+            <a href="#copyright" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">14</span><span>Claims of copyright infringement</span></a>
+            <a href="#miscellaneous" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">15</span><span>Miscellaneous</span></a>
+          </nav>
+        </aside>
+
+        <div style="flex:1 1 480px;min-width:0;max-width:720px;">
+          <div style="padding-bottom:clamp(32px,4vw,44px);">
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">These Terms of Use (&ldquo;Site Terms&rdquo;) describe the terms and conditions on which Stere, Inc. (&ldquo;Stere&rdquo;, &ldquo;we&rdquo; or &ldquo;us&rdquo;) offers you access to <a href="Home.dc.html" style="color:var(--brand-electric);font-weight:500;">www.stere.io</a> (the &ldquo;Site&rdquo;).</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Separate terms apply to SaaS licensing agreements for access to and use of the Stere platform — see the <a href="Master-Agreement.dc.html" style="color:var(--brand-electric);font-weight:500;">Stere Master Agreement</a>. For clarity, these Site Terms apply only to the Site.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Before accessing and using the Site, please read these Site Terms carefully — they constitute a legal agreement between Stere and you. By using the Site, you affirm that:</p>
+          <ul style="list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>you have read and understand these Site Terms;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>you will comply with these Site Terms; and</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>you are at least the age of legal majority in your place of residence and otherwise legally competent to enter into contracts.</span></li>
+          </ul>
+          <div style="display:flex;gap:14px;padding:20px 22px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-subtle);margin:0 0 22px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex:none;margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <p style="font-size:14.5px;line-height:1.65;color:var(--fg-default);margin:0;"><strong>Important:</strong> these Site Terms contain provisions that limit Stere&rsquo;s liability to you in connection with your use of the Site and require you to resolve any dispute with us on an individual basis rather than as part of a class or representative action. See <a href="#disclaimer" style="color:var(--brand-electric);font-weight:500;">Section 7 — Disclaimer of warranties &amp; limitations of liability</a> and <a href="#governing-law" style="color:var(--brand-electric);font-weight:500;">Section 9 — Governing law; dispute resolution</a>.</p>
+          </div>
+          </div>
+        <section id="changes" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">1</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Changes to these Site Terms</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">The Effective Date of these Site Terms is set out at the top of this page. As we add new features to the Site, we may modify these Site Terms. When we do, we will update the Effective Date and, when reasonably possible, provide you with advance written notice of the changes. We will not make changes that have a material retroactive effect unless required to do so by law or to protect the rights of other Site users.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Your continued use of the Site after the Effective Date constitutes your acceptance of the amended Site Terms. The amended Site Terms supersede all previous versions of, or agreements, notices or statements about, the Site Terms. Any change to dispute resolution will not apply to any dispute for which we have actual notice before the date the change is posted on the Site.</p>
+        </section>
+        <section id="additional" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">2</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Additional terms</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Additional terms and conditions may apply to certain features of the Site. When presented to you, you must agree to those additional terms before using the features to which they apply. These Site Terms and any additional terms apply equally, unless an additional term is irreconcilably inconsistent with these Site Terms — in which case the additional term prevails, but solely to the extent of the inconsistency.</p>
+        </section>
+        <section id="privacy" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">3</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Privacy</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Please review the <a href="Privacy-Policy.dc.html" style="color:var(--brand-electric);font-weight:500;">Stere Privacy Policy</a> to learn what information we collect from or about you when you use the Site, and how we process it.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Without limiting the terms of our Privacy Policy, you understand that Stere uses, stores and otherwise processes information collected through the Site, and may share that information with our service providers in order to improve the Site or to send you tailored information about our products and services that we believe may interest you (including by email, with your consent where required by applicable law).</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">We do not and cannot guarantee the security of information you provide through the Site. You are responsible for using the precautions and security measures best suited to your situation and intended use of the Site. We reserve the right at all times to disclose any information as we deem necessary to satisfy any applicable law or governmental or regulatory request.</p>
+        </section>
+        <section id="content" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">4</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Stere content</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">The Site — including any information, graphics, artwork, text, video clips, audio clips, trademarks, logos and other content provided on or through it (collectively, &ldquo;Stere Content&rdquo;) — is owned by Stere or its licensors and protected under domestic and foreign copyright, trademark and other laws.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere grants you a non-exclusive, non-transferable and limited licence (without the right to sublicense) to access and use the Site and to download, print and copy Stere Content solely for your own personal use to learn about Stere, subject to these Site Terms. All rights not expressly granted here are reserved by Stere.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">These Site Terms grant only the limited rights described in them. Nothing in these Site Terms grants, by implication, estoppel or otherwise, any licence or right in or to Stere&rsquo;s trademarks, logos or service marks (&ldquo;Marks&rdquo;), patents, trade secrets or other intellectual property embodied in the Site. Unauthorized use of any Marks or our other intellectual property may violate law.</p>
+        </section>
+        <section id="using" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">5</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Using the Site</h2>
+          </div>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:-0.015em;margin:26px 0 12px;color:var(--fg-default);">5.1 Your responsibilities</h3>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">You may use the Site for lawful, non-commercial purposes only. You may not use the Site in any manner that could damage, disable, overburden or impair our servers or networks, or interfere with any other party&rsquo;s use and enjoyment of the Site.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">You may not attempt to gain unauthorized access to the Site or to Stere&rsquo;s computer systems or networks through hacking, password mining or any other means. Without limiting the foregoing, you agree that you will not (and will not encourage or allow any third party to):</p>
+          <ul style="list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>copy, modify, adapt, translate, reverse engineer, decode or otherwise attempt to derive or gain access to any portion of the Site or Stere Content;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>remove any copyright, trademark or other proprietary rights notice contained in the Site or Stere Content;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>use any robot, spider, search or retrieval application, or other automated device, process or means to access, retrieve, scrape or index any portion of the Site;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>rent, lease, lend, sell, sublicense, assign, distribute, publish, transfer or otherwise make available the Site or any of its features or functionality to any third party for any reason;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>reformat or frame any portion of the web pages that form part of the Site;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>collect or store personal data about any other user without that user&rsquo;s express prior written consent; or</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>use the Site to send any unauthorized or unsolicited commercial or promotional content.</span></li>
+          </ul>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere may terminate your access to the Site without notice for any violation of the above rules.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">You are solely responsible for all charges, fees and other costs related to your use of the Site. If you access the Site on a smartphone, tablet or other mobile device, you are solely responsible for all charges you incur from your internet or mobile service provider.</p>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:-0.015em;margin:26px 0 12px;color:var(--fg-default);">5.2 Submissions</h3>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere may from time to time offer areas on the Site where you and other users can post or submit suggestions, feedback, ideas, notes, concepts or other information or materials (collectively, &ldquo;Submissions&rdquo;). By sending, posting or transmitting Submissions to Stere or its designees through the Site, you grant Stere and its designees a worldwide, non-exclusive, sublicensable (through multiple tiers), transferable, royalty-free, perpetual and irrevocable right to use, reproduce, sublicense, distribute, create derivative works of, perform and import your Submissions in any media now known or later developed, for any purpose, commercial or otherwise, without compensation to you. You are not entitled to payment if Stere uses one of your Submissions. All Submissions are deemed non-confidential and non-proprietary.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">By posting a Submission, you represent and warrant that:</p>
+          <ul style="list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>you own or otherwise control all rights to your Submission, including copyrights and moral rights;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>your Submission is true and accurate;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>your Submission does not violate the rights of any other person or entity, such as rights of privacy and publicity or moral rights; and</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>your Submission complies with applicable laws, rules and regulations.</span></li>
+          </ul>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere has the right (but not the obligation) to alter, remove, or refuse to post or allow the posting of any Submission. Stere takes no responsibility and assumes no liability for any Submission posted by you or any third party, and is not responsible for information you choose to communicate via Submissions.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere reserves the right to view, monitor and record activity on the Site to the fullest extent permitted by applicable law and in accordance with our Privacy Policy. In addition to any other available rights and remedies, Stere may discontinue access to the Site, with or without notice, if Stere has a reasonable basis to believe that a user is accessing or using Stere Content in violation of these Site Terms.</p>
+        </section>
+        <section id="links" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">6</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Links to other websites and services</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">The Site may contain links to third-party websites and services (collectively, &ldquo;Linked Services&rdquo;). Linked Services are not under Stere&rsquo;s control, and Stere is not responsible for Linked Services, for any information or materials on them, or for any transmission received from them. You access Linked Services at your own risk. The inclusion of a link does not imply endorsement by Stere or any association with the operators of the Linked Services. Stere does not investigate, verify or monitor Linked Services.</p>
+        </section>
+        <section id="disclaimer" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">7</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Disclaimer of warranties & limitations of liability</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere warrants that it has validly entered into these Site Terms and has the legal power to do so. You warrant that you have validly entered into these Site Terms and have the legal power to do so.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:var(--fg-default);font-weight:500;margin:0 0 18px;letter-spacing:.005em;">EXCEPT AS EXPRESSLY PROVIDED ABOVE, THE SITE IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere specifically disclaims all warranties and conditions of any kind, including all implied warranties and conditions of merchantability, fitness for a particular purpose, title, non-infringement, freedom from defects, and uninterrupted use, and all warranties implied from any course of dealing or usage of trade. Stere does not warrant that (a) the Site will meet your requirements, (b) operation of the Site will be uninterrupted or free of viruses or errors, or (c) errors will be corrected. Any oral or written advice provided by Stere or its authorized agents does not create any warranty.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:var(--fg-default);font-weight:500;margin:0 0 18px;letter-spacing:.005em;">SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, WHICH MEANS SOME OR ALL OF THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Your use of the Site is at your own risk.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:var(--fg-default);font-weight:500;margin:0 0 18px;letter-spacing:.005em;">YOU AGREE THAT STERE IS NOT LIABLE FOR INDIRECT, SPECIAL, EXEMPLARY, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES (INCLUDING PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, LOSS OF USE, DATA OR PROFITS, OR BUSINESS INTERRUPTION), HOWEVER CAUSED AND UNDER ANY THEORY OF LIABILITY, WHETHER ARISING IN CONNECTION WITH THESE SITE TERMS AND WHETHER IN CONTRACT, STRICT LIABILITY OR TORT (INCLUDING NEGLIGENCE), EVEN IF STERE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. YOU ALSO AGREE THAT STERE IS NOT LIABLE FOR ANY OTHER CLAIM, DEMAND OR DAMAGES WHATSOEVER RESULTING FROM, ARISING OUT OF, OR IN CONNECTION WITH YOUR USE OF THE SITE.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">The disclaimers and limitations in this Section 7 do not purport to limit liability or alter any right that cannot be excluded under applicable law.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:var(--fg-default);font-weight:500;margin:0 0 18px;letter-spacing:.005em;">STERE&rsquo;S MAXIMUM LIABILITY FOR ANY TYPE OF DAMAGES ARISING FROM YOUR USE OF THE SITE IS LIMITED TO ONE HUNDRED DOLLARS ($100).</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">You acknowledge and agree that the above limitations of liability, together with the other provisions in these Site Terms that limit liability, are essential terms, and that Stere would not grant you the rights set out in these Site Terms but for your agreement to them.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:var(--fg-default);font-weight:500;margin:0 0 18px;letter-spacing:.005em;">IF YOU ARE A CALIFORNIA RESIDENT, YOU WAIVE YOUR RIGHTS WITH RESPECT TO CALIFORNIA CIVIL CODE SECTION 1542, WHICH STATES: &ldquo;A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS WHICH THE CREDITOR DOES NOT KNOW OR SUSPECT TO EXIST IN HIS FAVOR AT THE TIME OF EXECUTING THE RELEASE, WHICH, IF KNOWN BY HIM, MUST HAVE MATERIALLY AFFECTED HIS SETTLEMENT WITH THE DEBTOR.&rdquo;</p>
+        </section>
+        <section id="indemnification" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">8</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Indemnification</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">You agree to indemnify and defend Stere and its directors, officers, employees and agents from and against all losses, liabilities, actual or pending claims, actions, damages, expenses, costs of defence and reasonable attorneys&rsquo; fees brought against Stere by any third party arising from your Submissions, your use of the Site in violation of these Site Terms, or your actual or alleged violation of the rights of a third party or of applicable law. Stere reserves the right, at its own expense, to assume the exclusive defence and control of any matter subject to indemnification. No settlement that affects the rights or obligations of Stere may be made without Stere&rsquo;s prior written approval.</p>
+        </section>
+        <section id="governing-law" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">9</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Governing law; dispute resolution</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">All matters related to the Site are governed by the internal laws of the State of Delaware, United States, as such laws apply to agreements made and performed there (without giving effect to conflict-of-laws principles). You must bring any legal action or proceeding relating to your access to or use of the Site in the state or federal courts located in the State of Delaware. You and Stere agree to submit to the jurisdiction of, and agree that venue is proper in, those courts.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">You and Stere agree that the United Nations Convention on Contracts for the International Sale of Goods does not apply to the interpretation or construction of these Site Terms.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:var(--fg-default);font-weight:500;margin:0 0 18px;letter-spacing:.005em;">YOU AND STERE AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY ON AN INDIVIDUAL BASIS, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE ACTION OR PROCEEDING.</p>
+          <div style="display:flex;gap:14px;padding:20px 22px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-subtle);margin:0 0 22px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex:none;margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <p style="font-size:14.5px;line-height:1.65;color:var(--fg-default);margin:0;"><strong>Please note:</strong> by agreeing to these Site Terms, you agree that any claims or actions you may otherwise have against Stere under the laws of any jurisdiction outside the United States are waived, including any claims or actions under the laws of your own country, and that your sole venue and applicable law for any dispute is the State of Delaware in accordance with this Section 9. This provision does not apply if you reside in a jurisdiction that permits you to bring your claim in a legally competent court where you reside, or where this provision is otherwise prohibited or restricted by applicable law.</p>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;"><strong style="color:var(--fg-default);">European Union residents:</strong> if you are an individual consumer who cannot resolve a dispute with Stere, you may have the right to submit a complaint through <a href="http://ec.europa.eu/consumers/odr" style="color:var(--brand-electric);font-weight:500;">ec.europa.eu/consumers/odr</a>.</p>
+        </section>
+        <section id="electronic" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">10</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Electronic contracting</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Your affirmative act of using the Site constitutes your electronic signature to these Site Terms and our Privacy Policy, and your consent to enter into agreements with us electronically.</p>
+        </section>
+        <section id="no-sale" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">11</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">No sale, solicitation or negotiation of insurance or reinsurance</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere is not licensed as an insurance or reinsurance company, agent, broker, producer or intermediary, nor licensed in any similar capacity. None of the actions or functions performed by Stere in relation to the Site involve, or should be construed to involve, the sale, solicitation or negotiation of insurance or reinsurance, or the acts or functions of an insurance or reinsurance company, agent, broker, intermediary or similarly licensed party.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">None of the monies or compensation received by Stere in relation to the Site is, involves, or should be construed to be or involve an insurance commission, a rebate, or a reduction in insurance premium.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">By using the Site, you acknowledge and agree that: Stere is not acting or functioning as an insurance or reinsurance company, agent, broker, intermediary or similarly licensed party; Stere is not performing any function that involves the sale, solicitation or negotiation of insurance or reinsurance; you have no expectation that Stere is doing so; and you are not relying on Stere to act as, or perform any function of, an insurance or reinsurance company, agent, broker, producer, intermediary or similarly licensed party.</p>
+        </section>
+        <section id="geographic" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">12</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Geographic restrictions</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">The Site is controlled, operated and administered by Stere from its offices in the United States, and our policies and procedures are based on U.S. law. The Site is not intended for distribution to, or use by, any person or entity in any jurisdiction or country where such distribution or use would be contrary to law. Stere does not warrant or represent that the Site, including any content on it, is appropriate or available for use in any particular location. If you choose to access the Site, you do so on your own initiative and are responsible for compliance with all applicable laws.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Contents of the Site may be subject to export control laws. You will not, and will not permit any third party to, directly or indirectly export, re-export or release any part of the Site to, or make the Site accessible from, any jurisdiction to which export, re-export or release is prohibited by law.</p>
+        </section>
+        <section id="termination" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">13</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Termination</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">These Site Terms automatically terminate if you fail to comply with any of their terms or conditions. Stere may terminate the Site or modify your access to it, with or without notice, at any time and for any reason. For example, Stere may prohibit your use of the Site if Stere believes that you are a minor.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Termination will not limit any of Stere&rsquo;s other rights or remedies. Sections 4, 7, 8, 9, 12, 14 and 15, as well as any other provision that must survive in order to give proper effect to the intent and purpose of these Site Terms, survive termination.</p>
+        </section>
+        <section id="copyright" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">14</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Claims of copyright infringement</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">We respond to notices of alleged infringement as required by the U.S. Digital Millennium Copyright Act (&ldquo;DMCA&rdquo;) and any other similar applicable law, including by removing or disabling access to material claimed to be the subject of infringing activity. If you believe in good faith that your work has been copied in a way that constitutes copyright infringement, or that your intellectual property rights have otherwise been violated in or through the Site, please send your claim or notice of infringement to our copyright agent.</p>
+          <div style="margin:0 0 22px;padding:20px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-elevated);">
+            <div style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin-bottom:10px;">Copyright agent</div>
+            <div style="font-family:var(--font-mono);font-size:14px;color:var(--fg-default);">hello@stere.io</div>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Our copyright agent will only respond to notices and inquiries that comply with the requirements of the DMCA. See <a href="https://www.copyright.gov" style="color:var(--brand-electric);font-weight:500;">copyright.gov</a> for more information.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Upon receipt of notification complying with the DMCA, Stere will take steps to remove or disable access to the infringing material and any link to it. Notifications must include all of the following:</p>
+          <ul style="list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>a physical or electronic signature of the person authorized to act on behalf of the owner of an exclusive copyright that is allegedly infringed;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>a description of the copyrighted work that you claim has been infringed;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>a description of where on the Site the material you claim is infringing is located;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>contact information reasonably sufficient to permit Stere to contact you;</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>a statement that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent or the law; and</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>a statement, made under penalty of perjury, that the information in your notification is accurate and that you are the copyright owner or authorized to act on the owner&rsquo;s behalf.</span></li>
+          </ul>
+        </section>
+        <section id="miscellaneous" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">15</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Miscellaneous</h2>
+          </div>
+          <ul style="list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>These Site Terms (including our Privacy Policy) contain the entire understanding between Stere and you with respect to the Site and the matters contained in them.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>These Site Terms benefit and bind Stere&rsquo;s and your successors and assigns, respectively.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Stere may assign these Site Terms to a successor in interest (in whole or in part); you may not assign them without Stere&rsquo;s prior express written consent.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>If any provision of these Site Terms is or becomes unenforceable or invalid, the remaining provisions continue with the same effect as if the unenforceable or invalid provision had not been used.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>If either Stere or you fails to perform any obligation under these Site Terms and the other party does not enforce it, that failure to enforce does not constitute a waiver and does not prevent enforcement on any other occasion.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Nothing in these Site Terms creates a partnership, joint venture or agency relationship between Stere and you.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>If either party is prevented from performing, or unable to perform, any obligation under these Site Terms due to a cause beyond its reasonable control, the affected party&rsquo;s performance is extended for the period of the delay or inability to perform.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Headings and captions are for convenience only.</span></li>
+          </ul>
+        </section>
+          <div style="margin-top:clamp(16px,2vw,24px);padding:clamp(24px,3vw,32px);border:1px solid var(--border-default);border-radius:16px;background:var(--bg-elevated);box-shadow:var(--shadow-stere);">
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 10px;color:var(--fg-default);">Questions and feedback</h2>
+            <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 18px;">If you have questions or feedback about the Site or these Site Terms, please contact us.</p>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <span style="font-size:14px;font-weight:600;color:var(--fg-default);">Stere, Inc.</span>
+              <a href="Contact.dc.html" style="font-family:var(--font-mono);font-size:14px;color:var(--brand-electric);">hello@stere.io</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:var(--bg-page);border-top:1px solid var(--border-default);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,48px) 40px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 32px;">
+        <div style="grid-column:auto;min-width:220px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <span style="display:inline-block;width:22px;height:28px;background:var(--fg-default);-webkit-mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+            <span style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.03em;">Stere</span>
+          </div>
+          <p style="font-size:13.5px;line-height:1.55;color:var(--fg-muted);margin:0 0 18px;max-width:34ch;">The API- and AI-enabled Insurance Platform-as-a-Service.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--border-default);border-radius:6px;font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>SOC 2</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--border-default);border-radius:6px;font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>ISO 27001:2022</span>
+          </div>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Solutions</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="MGAs.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">MGAs</a></li>
+            <li><a href="MGA-Aggregators.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">MGA Aggregators</a></li>
+            <li><a href="Carriers.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Carriers</a></li>
+            <li><a href="Mutuals.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Mutuals</a></li>
+            <li><a href="Distribution-Platforms.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Distribution Platforms</a></li>
+            <li><a href="Autonomous-Agents.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Autonomous Agents</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Company</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="Insights.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Insights</a></li>
+            <li><a href="About-Us.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">About us</a></li>
+            <li><a href="Contact.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Support</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="Terms-of-Use.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Terms of Use</a></li>
+            <li><a href="Privacy-Policy.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Privacy Policy</a></li>
+            <li><a href="Information-Security.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Information &amp; Security</a></li>
+            <li><a href="Master-Agreement.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Master Agreement</a></li>
+            <li><a href="Contact.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Contact us</a></li>
+            <li><a href="https://status.stere.io" style="display:inline-flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);"><span style="width:8px;height:8px;border-radius:50%;background:#10b981;animation:stere-pulse 1.6s var(--ease-out) infinite;"></span>Service Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-top:44px;padding-top:24px;border-top:1px solid var(--border-default);">
+        <span style="font-size:13px;color:var(--fg-subtle);">© 2026 Stere. All rights reserved.</span>
+        <span style="font-size:13px;color:var(--fg-subtle);">Built for humans and machines alike.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;}}">
+class Component extends DCLogic {
+  state = { isMobile: false, menu: null, mobileOpen: false };
+  componentDidMount() {
+    document.documentElement.setAttribute('data-theme', 'light');
+    this._onResize = () => {
+      const m = window.innerWidth < 900;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m, mobileOpen: false });
+    };
+    this._onResize();
+    window.addEventListener('resize', this._onResize);
+
+    this._onScroll = () => {
+      const h = this._header; if (!h) return;
+      const scrolled = window.scrollY > 24;
+      if (scrolled) {
+        h.style.background = 'rgba(255,255,255,.72)';
+        h.style.backdropFilter = 'saturate(1.4) blur(12px)';
+        h.style.webkitBackdropFilter = 'saturate(1.4) blur(12px)';
+        h.style.borderBottomColor = 'var(--border-default)';
+      } else {
+        h.style.background = 'transparent';
+        h.style.backdropFilter = 'none';
+        h.style.webkitBackdropFilter = 'none';
+        h.style.borderBottomColor = 'transparent';
+      }
+    };
+    this._onScroll();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('scroll', this._onScroll); }
+  headerRef = (el) => { this._header = el; if (el && this._onScroll) this._onScroll(); };
+
+  renderVals() {
+    return {
+      headerRef: this.headerRef,
+      asidePos: this.state.isMobile ? 'static' : 'sticky',
+      isMobile: this.state.isMobile,
+      desktopNav: !this.state.isMobile,
+      mobileMenu: this.state.isMobile && this.state.mobileOpen,
+      toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
+      solutionsOpen: this.state.menu === 'solutions',
+      companyOpen: this.state.menu === 'company',
+      openSolutions: () => this.setState({ menu: 'solutions' }),
+      openCompany: () => this.setState({ menu: 'company' }),
+      closeMenu: () => this.setState({ menu: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+/* =============================================================
+   STERE DESIGN SYSTEM — Colors, Type & Tokens (v1.0)
+   Single source of truth. Mirror of reference/stere-design-system-v1.html.
+   ============================================================= */
+
+/* Brand font — self-hosted Geist (variable; Italic & Roman) */
+@font-face {
+  font-family: 'Geist';
+  src: url('fonts/Geist_wght_.woff2') format('woff2-variations'),
+       url('fonts/Geist_wght_.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('fonts/Geist-Italic_wght_.woff2') format('woff2-variations'),
+       url('fonts/Geist-Italic_wght_.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Mono — self-hosted JetBrains Mono (variable; Italic & Roman) */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('fonts/JetBrainsMono_wght.ttf') format('truetype-variations'),
+       url('fonts/JetBrainsMono_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('fonts/JetBrainsMono-Italic_wght.ttf') format('truetype-variations'),
+       url('fonts/JetBrainsMono-Italic_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Body — self-hosted Inter (variable; opsz + wght, Italic & Roman) */
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter_opsz_wght.ttf') format('truetype-variations'),
+       url('fonts/Inter_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-Italic_opsz_wght.ttf') format('truetype-variations'),
+       url('fonts/Inter-Italic_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Font warm-up — forces every self-hosted face (incl. italics) to fetch on
+   load, so the brand fonts never register as "unloaded"/substituted.
+   Hidden off-canvas; one family per pseudo-element. */
+html::before, html::after, body::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  font-style: italic;
+  content: "x";
+}
+html::before { font-family: 'Geist'; }
+html::after  { font-family: 'Inter'; }
+body::after  { font-family: 'JetBrains Mono'; }
+
+:root {
+  /* ---------- Brand (fixed across themes) ---------- */
+  --brand-navy:      #06203b;
+  --brand-electric:  #3d0cff;
+  --brand-cyan:      #6ff9ff;
+  --brand-violet:    #7856ff;
+  --brand-gold:      #ffda83;
+  --brand-coral:     #ff4a68;
+
+  /* ---------- Brand tints (derived) ---------- */
+  --electric-50:  #f0ecff;
+  --electric-100: #ddd2ff;
+  --electric-200: #b8a5ff;
+  --electric-500: #3d0cff;
+  --electric-600: #3209d6;
+  --electric-700: #2607a8;
+  --violet-50:    #f3effe;
+  --violet-100:   #e2dbfd;
+  --violet-500:   #7856ff;
+  --cyan-50:      #ecfeff;
+  --cyan-100:     #d6fcff;
+  --cyan-500:     #6ff9ff;
+  --gold-50:      #fff8e6;
+  --gold-100:     #fff1c4;
+  --gold-500:     #ffda83;
+  --coral-50:     #ffeef1;
+  --coral-100:    #ffd6dd;
+  --coral-500:    #ff4a68;
+  --emerald-500:  #10b981;
+  --emerald-50:   #ecfdf5;
+
+  /* ---------- Signature gradients ---------- */
+  --gradient-primary: linear-gradient(135deg, #3d0cff 0%, #7856ff 100%); /* @kind color */
+  --gradient-live:    linear-gradient(135deg, #6ff9ff 0%, #3d0cff 100%); /* @kind color */
+  --gradient-warm:    linear-gradient(135deg, #ffda83 0%, #ff4a68 100%); /* @kind color */
+  --gradient-ambient: linear-gradient(180deg, rgba(61,12,255,0.04) 0%, rgba(120,86,255,0.02) 100%); /* @kind color */
+  --gradient-mesh:    radial-gradient(at 20% 10%, rgba(61,12,255,0.10) 0%, transparent 50%),
+                      radial-gradient(at 80% 0%,  rgba(111,249,255,0.10) 0%, transparent 50%),
+                      radial-gradient(at 50% 100%, rgba(120,86,255,0.06) 0%, transparent 50%); /* @kind color */
+
+  /* ---------- Typography stack ---------- */
+  --font-display: 'Geist', system-ui, sans-serif;
+  --font-sans:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* Semantic type tokens (size / line-height / tracking / weight) */
+  --type-display-1: 700 64px/70px var(--font-display); --tracking-display-1: -0.035em;
+  --type-display-2: 600 44px/50px var(--font-display); --tracking-display-2: -0.030em;
+  --type-h1:        600 32px/40px var(--font-display); --tracking-h1: -0.025em;
+  --type-h2:        600 24px/32px var(--font-display); --tracking-h2: -0.020em;
+  --type-h3:        600 18px/26px var(--font-display); --tracking-h3: -0.010em;
+  --type-body-lg:   400 17px/26px var(--font-sans);
+  --type-body:      400 15px/23px var(--font-sans);
+  --type-body-sm:   400 13px/19px var(--font-sans);
+  --type-caption:   400 11.5px/16px var(--font-sans);
+  --type-numeric:   500 28px/32px var(--font-mono);
+  --type-mono-sm:   500 12px/16px var(--font-mono);
+  --type-eyebrow:   600 11px/14px var(--font-mono); /* uppercase, .1em tracking */
+
+  /* ---------- Radii ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;   /* buttons, inputs, badges, chips */
+  --radius-md: 8px;   /* dense cards */
+  --radius-lg: 12px;  /* elevated cards */
+  --radius-xl: 16px;  /* hero containers, modals */
+
+  /* ---------- Spacing scale (4px base) ---------- */
+  --space-1:  4px;  --space-2:  8px;  --space-3: 12px;
+  --space-4: 16px;  --space-5: 20px;  --space-6: 24px;
+  --space-8: 32px;  --space-10: 40px; --space-12: 48px;
+  --space-16: 64px; --space-20: 80px;
+
+  /* ---------- Motion ---------- */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --dur-fast:    120ms; /* @kind other */
+  --dur-base:    200ms; /* @kind other */
+  --dur-slow:    320ms; /* @kind other */
+}
+
+/* =============================================================
+   LIGHT THEME (default) — white surfaces, cyan signature shadow
+   ============================================================= */
+:root,
+:root[data-theme="light"] {
+  --bg-page:        #ffffff;
+  --bg-elevated:    #ffffff;
+  --bg-subtle:      #f7f8fa;
+  --bg-muted:       #eef0f4;
+  --bg-inverse:     #06203b;
+
+  --fg-default:     #06203b;
+  --fg-muted:       #4a5b73;
+  --fg-subtle:      #7a8aa1;
+  --fg-inverse:     #ffffff;
+  --fg-accent:      #3d0cff;
+
+  --border-default: rgba(6,32,59,0.10);
+  --border-strong:  rgba(6,32,59,0.18);
+  --border-accent:  #3d0cff;
+
+  --shadow-sm: 0 1px 2px rgba(6,32,59,0.05);
+  --shadow-md: 0 4px 12px rgba(6,32,59,0.08);
+  --shadow-lg: 0 12px 32px rgba(6,32,59,0.10);
+
+  /* Signature dual-layer offset shadow — cyan in light mode */
+  --shadow-stere:       5px 5px 0 -1px rgba(111,249,255,0.55), 0 1px 2px rgba(6,32,59,0.06);
+  --shadow-stere-hover: 7px 7px 0 -1px rgba(111,249,255,0.65), 0 4px 12px rgba(6,32,59,0.10);
+
+  --status-success-bg: #ecfdf5; --status-success-fg: #047857;
+  --status-pending-bg: #fff8e6; --status-pending-fg: #92660b;
+  --status-info-bg:    #f3effe; --status-info-fg:    #5b3fd6;
+  --status-danger-bg:  #ffeef1; --status-danger-fg:  #c91f3d;
+  --status-live-bg:    #ecfeff; --status-live-fg:    #086a73;
+}
+
+/* =============================================================
+   DARK THEME — near-black navy base, violet signature shadow
+   ============================================================= */
+:root[data-theme="dark"] {
+  --bg-page:        #030917;
+  --bg-elevated:    #061229;
+  --bg-subtle:      #0a1830;
+  --bg-muted:       #102241;
+  --bg-inverse:     #ffffff;
+
+  --fg-default:     #e8eef7;
+  --fg-muted:       #9fb0c8;
+  --fg-subtle:      #6d7e98;
+  --fg-inverse:     #06203b;
+  --fg-accent:      #b8a5ff;
+
+  --border-default: rgba(232,238,247,0.08);
+  --border-strong:  rgba(232,238,247,0.16);
+  --border-accent:  #7856ff;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.5);
+
+  --shadow-stere:       5px 5px 0 -1px rgba(120,86,255,0.55), 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-stere-hover: 7px 7px 0 -1px rgba(120,86,255,0.70), 0 4px 12px rgba(0,0,0,0.6);
+
+  --status-success-bg: rgba(16,185,129,0.12); --status-success-fg: #6ee7b7;
+  --status-pending-bg: rgba(255,218,131,0.12); --status-pending-fg: #ffda83;
+  --status-info-bg:    rgba(120,86,255,0.16);  --status-info-fg:    #c4b5fd;
+  --status-danger-bg:  rgba(255,74,104,0.14);  --status-danger-fg:  #fda4af;
+  --status-live-bg:    rgba(111,249,255,0.10); --status-live-fg:    #6ff9ff;
+}
+
+/* =============================================================
+   BASE — applies type tokens to canonical HTML elements
+   ============================================================= */
+html { font-feature-settings: 'cv11', 'ss01', 'ss03'; }
+body {
+  font: var(--type-body);
+  color: var(--fg-default);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+h1 { font: var(--type-h1); letter-spacing: var(--tracking-h1); margin: 0; color: var(--fg-default); }
+h2 { font: var(--type-h2); letter-spacing: var(--tracking-h2); margin: 0; color: var(--fg-default); }
+h3 { font: var(--type-h3); letter-spacing: var(--tracking-h3); margin: 0; color: var(--fg-default); }
+p  { color: var(--fg-muted); margin: 0; }
+small, .caption { font: var(--type-caption); color: var(--fg-muted); }
+code, kbd, .mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+a { color: var(--fg-accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+::selection { background: var(--brand-electric); color: white; }

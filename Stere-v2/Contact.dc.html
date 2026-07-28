@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/colors_and_type.css">
+  <link rel="stylesheet" href="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/styles.css">
+  <script src="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/_ds_bundle.js"></script>
+  <style>
+    body { margin:0; background:var(--bg-page); color:var(--fg-default); -webkit-font-smoothing:antialiased; }
+    * { box-sizing:border-box; }
+    a { color:var(--fg-accent); text-decoration:none; }
+    a:hover { text-decoration:none; }
+    @keyframes stere-pulse { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)} 70%{box-shadow:0 0 0 7px rgba(16,185,129,0)} 100%{box-shadow:0 0 0 0 rgba(16,185,129,0)} }
+    @keyframes stere-drift-a { 0%,100%{transform:translate(-6%,-4%) scale(1);} 50%{transform:translate(9%,7%) scale(1.18);} }
+    @keyframes stere-drift-b { 0%,100%{transform:translate(7%,8%) scale(1.12);} 50%{transform:translate(-9%,-7%) scale(1);} }
+    @keyframes stere-grid-drift { from{background-position:0 0;} to{background-position:0 46px;} }
+    @keyframes stere-scan { 0%{opacity:.0;transform:translateY(-30px);} 40%{opacity:.5;} 100%{opacity:0;transform:translateY(120px);} }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Stere","about":"Get in touch with the Stere team.","mainEntity":{"@type":"Organization","name":"Stere","url":"https://stere.io","email":"hello@stere.io"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Stere","url":"https://stere.io","hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"SOC 2"},{"@type":"EducationalOccupationalCredential","credentialCategory":"ISO 27001:2022"}]}</script>
+</helmet>
+
+<div style="font-family:var(--font-sans);">
+
+  <header ref="{{ headerRef }}" style="position:sticky;top:0;z-index:60;background:transparent;border-bottom:1px solid transparent;transition:background var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),backdrop-filter var(--dur-base) var(--ease-out);">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:66px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;color:var(--fg-default);">
+        <span style="display:inline-block;width:22px;height:28px;background:var(--fg-default);-webkit-mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.03em;">Stere</span>
+      </a>
+
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:4px;">
+        <a href="Platform.dc.html" style="color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Platform</a>
+
+        <div style="position:relative;" onMouseEnter="{{ openSolutions }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Home.dc.html#solutions" style="display:inline-flex;align-items:center;gap:5px;color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Solutions
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <sc-if value="{{ solutionsOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;padding-top:6px;"><div style="width:288px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;">
+            <a href="MGAs.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">MGAs<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">The turnkey SaaS core</span></a>
+            <a href="MGA-Aggregators.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">MGA Aggregators<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">A shared technology core</span></a>
+            <a href="Carriers.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Carriers<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Wrap legacy cores, launch digital</span></a>
+            <a href="Mutuals.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Mutuals<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Modernize without disruption</span></a>
+            <a href="Distribution-Platforms.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Distribution Platforms<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Connect once, scale infinitely</span></a>
+            <a href="Autonomous-Agents.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Autonomous Agents<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Built for A2A workflows</span></a>
+          </div></div>
+          </sc-if>
+        </div>
+
+        <div style="position:relative;" onMouseEnter="{{ openCompany }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Home.dc.html#company" style="display:inline-flex;align-items:center;gap:5px;color:var(--fg-default);font-size:14.5px;font-weight:600;padding:9px 14px;border-radius:6px;background:var(--bg-subtle);">Company
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <sc-if value="{{ companyOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;padding-top:6px;"><div style="width:220px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;">
+            <a href="Insights.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Insights</a>
+            <a href="About-Us.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">About us</a>
+            <a href="Contact.dc.html" aria-current="page" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;background:var(--bg-subtle);">Contact us</a>
+          </div></div>
+          </sc-if>
+        </div>
+      </nav>
+      </sc-if>
+
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="Demo.dc.html" style="display:inline-flex;align-items:center;gap:7px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:14.5px;padding:11px 18px;border-radius:6px;box-shadow:var(--shadow-sm);transition:transform var(--dur-fast) var(--ease-out);" style-hover="transform:translateY(-1px);">Request a demo</a>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMobile }}" aria-label="Menu" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--border-default);background:var(--bg-page);color:var(--fg-default);border-radius:8px;cursor:pointer;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="width:20px;height:20px;"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+
+    <sc-if value="{{ mobileMenu }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile" style="border-top:1px solid var(--border-default);padding:12px clamp(20px,5vw,48px) 20px;display:flex;flex-direction:column;gap:2px;background:var(--bg-page);">
+      <a href="Platform.dc.html" style="padding:11px 8px;color:var(--fg-default);font-weight:600;font-size:15px;">Platform</a>
+      <span style="padding:12px 8px 4px;font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);">Solutions</span>
+      <a href="MGAs.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">MGAs</a>
+      <a href="MGA-Aggregators.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">MGA Aggregators</a>
+      <a href="Carriers.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Carriers</a>
+      <a href="Mutuals.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Mutuals</a>
+      <a href="Distribution-Platforms.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Distribution Platforms</a>
+      <a href="Autonomous-Agents.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Autonomous Agents</a>
+      <span style="padding:12px 8px 4px;font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);">Company</span>
+      <a href="Insights.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Insights</a>
+      <a href="About-Us.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">About us</a>
+      <a href="Contact.dc.html" style="padding:9px 8px;color:var(--fg-default);font-size:14.5px;font-weight:600;">Contact us</a>
+    </nav>
+    </sc-if>
+  </header>
+
+  <main>
+
+    <!-- SPLIT SCREEN -->
+    <section aria-label="Contact us" style="background:var(--bg-page);">
+      <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;min-height:calc(100vh - 66px);">
+          <!-- LEFT: FORM -->
+          <div style="padding:clamp(48px,6vw,80px) clamp(4px,2vw,40px) clamp(48px,6vw,80px) 0;display:flex;flex-direction:column;justify-content:center;">
+            <div style="max-width:480px;width:100%;">
+              <p style="font:var(--type-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--fg-accent);margin:0 0 16px;">Company · Contact</p>
+              <h1 style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3.6vw,44px);line-height:1.06;letter-spacing:-0.03em;color:var(--fg-default);margin:0;">Let&rsquo;s talk.</h1>
+
+              <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;align-items:center;gap:8px;margin:26px 0 22px;">
+                <span style="display:inline-flex;align-items:center;gap:7px;font:var(--type-mono-sm);color:var(--fg-subtle);">Step {{ stepNum }} of 3</span>
+                <span style="flex:1;height:4px;border-radius:999px;background:var(--bg-muted);overflow:hidden;"><span style="display:block;height:100%;width:{{ progress }};background:var(--brand-electric);transition:width var(--dur-base) var(--ease-out);"></span></span>
+              </div>
+              </sc-if>
+
+              <!-- STEP 0 · ROLE -->
+              <sc-if value="{{ isStep0 }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <p style="font-size:15px;color:var(--fg-muted);margin:0 0 18px;">Tell us who you are, and we&rsquo;ll route you to the right team.</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+              <button onClick="{{ roleCarrier }}" style="display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-page);cursor:pointer;text-align:left;transition:border-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--brand-electric);transform:translateY(-1px);">
+                <span style="flex:none;display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:9px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+                <span style="display:flex;flex-direction:column;gap:3px;"><span style="font-size:14.5px;font-weight:600;color:var(--fg-default);">I&rsquo;m a Carrier</span><span style="font-size:12.5px;color:var(--fg-subtle);line-height:1.35;">Wrap a legacy core, launch digital</span></span>
+              </button>
+              <button onClick="{{ roleMGA }}" style="display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-page);cursor:pointer;text-align:left;transition:border-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--brand-electric);transform:translateY(-1px);">
+                <span style="flex:none;display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:9px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></span>
+                <span style="display:flex;flex-direction:column;gap:3px;"><span style="font-size:14.5px;font-weight:600;color:var(--fg-default);">I&rsquo;m an MGA</span><span style="font-size:12.5px;color:var(--fg-subtle);line-height:1.35;">The turnkey SaaS core</span></span>
+              </button>
+              <button onClick="{{ roleAgg }}" style="display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-page);cursor:pointer;text-align:left;transition:border-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--brand-electric);transform:translateY(-1px);">
+                <span style="flex:none;display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:9px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+                <span style="display:flex;flex-direction:column;gap:3px;"><span style="font-size:14.5px;font-weight:600;color:var(--fg-default);">I&rsquo;m an MGA Aggregator</span><span style="font-size:12.5px;color:var(--fg-subtle);line-height:1.35;">A shared technology core</span></span>
+              </button>
+              <button onClick="{{ roleMutual }}" style="display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-page);cursor:pointer;text-align:left;transition:border-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--brand-electric);transform:translateY(-1px);">
+                <span style="flex:none;display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:9px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+                <span style="display:flex;flex-direction:column;gap:3px;"><span style="font-size:14.5px;font-weight:600;color:var(--fg-default);">I&rsquo;m a Mutual</span><span style="font-size:12.5px;color:var(--fg-subtle);line-height:1.35;">Modernize without disruption</span></span>
+              </button>
+              <button onClick="{{ roleDist }}" style="display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-page);cursor:pointer;text-align:left;transition:border-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--brand-electric);transform:translateY(-1px);">
+                <span style="flex:none;display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:9px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg></span>
+                <span style="display:flex;flex-direction:column;gap:3px;"><span style="font-size:14.5px;font-weight:600;color:var(--fg-default);">I&rsquo;m a Distribution Platform</span><span style="font-size:12.5px;color:var(--fg-subtle);line-height:1.35;">Connect once, scale infinitely</span></span>
+              </button>
+              <button onClick="{{ roleDev }}" style="display:flex;align-items:flex-start;gap:12px;padding:16px;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-page);cursor:pointer;text-align:left;transition:border-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out);" style-hover="border-color:var(--brand-electric);transform:translateY(-1px);">
+                <span style="flex:none;display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:9px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></span>
+                <span style="display:flex;flex-direction:column;gap:3px;"><span style="font-size:14.5px;font-weight:600;color:var(--fg-default);">I&rsquo;m a Developer or AI Agent</span><span style="font-size:12.5px;color:var(--fg-subtle);line-height:1.35;">Built for A2A workflows</span></span>
+              </button>
+                </div>
+              </div>
+              </sc-if>
+
+              <!-- STEP 1 · DETAILS -->
+              <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <p style="font-size:15px;color:var(--fg-muted);margin:0 0 20px;">Great — you&rsquo;re a <strong style="color:var(--fg-default);">{{ roleLabel }}</strong>. How do we reach you?</p>
+                <div style="display:flex;flex-direction:column;gap:16px;">
+              <label style="display:flex;flex-direction:column;gap:7px;">
+                <span style="font-size:13px;font-weight:500;color:var(--fg-default);">Full name</span>
+                <input type="text" value="{{ nameVal }}" onChange="{{ onName }}" placeholder="Jordan Rivera" style="height:42px;padding:0 13px;border:1px solid var(--border-default);border-radius:6px;background:var(--bg-page);color:var(--fg-default);font-size:14px;font-family:var(--font-sans);outline:none;" style-focus="border-color:var(--brand-electric);box-shadow:0 0 0 3px rgba(61,12,255,.12);">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:7px;">
+                <span style="font-size:13px;font-weight:500;color:var(--fg-default);">Company</span>
+                <input type="text" value="{{ companyVal }}" onChange="{{ onCompany }}" placeholder="Acme Insurance" style="height:42px;padding:0 13px;border:1px solid var(--border-default);border-radius:6px;background:var(--bg-page);color:var(--fg-default);font-size:14px;font-family:var(--font-sans);outline:none;" style-focus="border-color:var(--brand-electric);box-shadow:0 0 0 3px rgba(61,12,255,.12);">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:7px;">
+                <span style="font-size:13px;font-weight:500;color:var(--fg-default);">Work email</span>
+                <input type="email" value="{{ emailVal }}" onChange="{{ onEmail }}" placeholder="jordan@acme.com" style="height:42px;padding:0 13px;border:1px solid var(--border-default);border-radius:6px;background:var(--bg-page);color:var(--fg-default);font-size:14px;font-family:var(--font-sans);outline:none;" style-focus="border-color:var(--brand-electric);box-shadow:0 0 0 3px rgba(61,12,255,.12);">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:7px;">
+                <span style="font-size:13px;font-weight:500;color:var(--fg-default);">Phone (optional)</span>
+                <input type="tel" value="{{ phoneVal }}" onChange="{{ onPhone }}" placeholder="+1 (555) 000-0000" style="height:42px;padding:0 13px;border:1px solid var(--border-default);border-radius:6px;background:var(--bg-page);color:var(--fg-default);font-size:14px;font-family:var(--font-sans);outline:none;" style-focus="border-color:var(--brand-electric);box-shadow:0 0 0 3px rgba(61,12,255,.12);">
+              </label>
+                </div>
+                <div style="display:flex;gap:12px;margin-top:26px;">
+                  <button onClick="{{ back }}" style="display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--fg-default);font-weight:600;font-size:14.5px;padding:13px 20px;border-radius:6px;border:1px solid var(--border-strong);cursor:pointer;" style-hover="background:var(--bg-subtle);">Back</button>
+                  <button onClick="{{ next }}" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:14.5px;padding:13px 20px;border-radius:6px;border:none;box-shadow:var(--shadow-sm);cursor:pointer;transition:transform var(--dur-fast) var(--ease-out);" style-hover="transform:translateY(-1px);">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                </div>
+              </div>
+              </sc-if>
+
+              <!-- STEP 2 · MESSAGE -->
+              <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <p style="font-size:15px;color:var(--fg-muted);margin:0 0 20px;">Anything you&rsquo;d like us to know before we reach out?</p>
+                <label style="display:flex;flex-direction:column;gap:7px;">
+                  <span style="font-size:13px;font-weight:500;color:var(--fg-default);">How can we help?</span>
+                  <textarea value="{{ messageVal }}" onChange="{{ onMessage }}" rows="5" placeholder="We&rsquo;re looking to launch a new product line in Q3 and want to avoid a core migration…" style="padding:12px 13px;border:1px solid var(--border-default);border-radius:6px;background:var(--bg-page);color:var(--fg-default);font-size:14px;font-family:var(--font-sans);line-height:1.5;resize:vertical;outline:none;" style-focus="border-color:var(--brand-electric);box-shadow:0 0 0 3px rgba(61,12,255,.12);"></textarea>
+                </label>
+                <div style="display:flex;gap:12px;margin-top:26px;">
+                  <button onClick="{{ back }}" style="display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--fg-default);font-weight:600;font-size:14.5px;padding:13px 20px;border-radius:6px;border:1px solid var(--border-strong);cursor:pointer;" style-hover="background:var(--bg-subtle);">Back</button>
+                  <button onClick="{{ submit }}" style="flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:14.5px;padding:13px 20px;border-radius:6px;border:none;box-shadow:var(--shadow-md);cursor:pointer;transition:transform var(--dur-fast) var(--ease-out);" style-hover="transform:translateY(-1px);">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                </div>
+              </div>
+              </sc-if>
+
+              <!-- SENT -->
+              <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:28px;padding:32px;border:1px solid var(--border-default);border-radius:16px;background:var(--bg-elevated);box-shadow:var(--shadow-stere);">
+                <span style="display:inline-flex;width:52px;height:52px;align-items:center;justify-content:center;border-radius:13px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <h2 style="font-family:var(--font-display);font-weight:600;font-size:24px;letter-spacing:-0.02em;margin:18px 0 0;color:var(--fg-default);">Message sent.</h2>
+                <p style="font-size:15px;line-height:1.6;color:var(--fg-muted);margin:12px 0 0;">Thanks — the right team will be in touch within one business day. In the meantime, explore the platform or book a live walkthrough.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;">
+                  <a href="Demo.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:14.5px;padding:12px 20px;border-radius:6px;">Request a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                  <a href="Platform.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--fg-default);font-weight:600;font-size:14.5px;padding:12px 20px;border-radius:6px;border:1px solid var(--border-strong);" style-hover="background:var(--bg-subtle);">See the platform</a>
+                </div>
+              </div>
+              </sc-if>
+            </div>
+          </div>
+
+          <!-- RIGHT: DETAILS + NETWORK VISUAL -->
+          <div style="position:relative;overflow:hidden;background:#06203b;border-radius:0;margin:clamp(0px,2vw,24px) 0;border-radius:16px;">
+            <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-mesh);opacity:.55;"></div>
+            <div aria-hidden="true" style="position:absolute;inset:0;background-image:radial-gradient(rgba(111,249,255,.18) 1px,transparent 1.4px);background-size:26px 26px;-webkit-mask-image:radial-gradient(120% 100% at 60% 30%,#000 25%,transparent 78%);mask-image:radial-gradient(120% 100% at 60% 30%,#000 25%,transparent 78%);opacity:.6;"></div>
+            <div aria-hidden="true" style="position:absolute;left:12%;right:12%;top:0;height:2px;background:linear-gradient(90deg,transparent,rgba(111,249,255,.7),transparent);filter:blur(1px);animation:stere-scan 8s var(--ease-out) infinite;"></div>
+            <div style="position:relative;padding:clamp(40px,5vw,64px);height:100%;display:flex;flex-direction:column;justify-content:center;gap:36px;">
+              <div>
+                <span role="img" aria-label="Stere" style="display:inline-block;width:104px;height:32px;background:#fff;-webkit-mask:url(assets/logo-stere-white.svg) center left/contain no-repeat;mask:url(assets/logo-stere-white.svg) center left/contain no-repeat;margin-bottom:20px;"></span>
+                <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-0.02em;color:#fff;margin:0;">Talk to the team building the future of insurance infrastructure.</h2>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:22px;">
+                <div style="display:flex;align-items:flex-start;gap:14px;">
+                  <span style="flex:none;display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:10px;background:rgba(111,249,255,.12);color:var(--brand-cyan);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+                  <div><div style="font-size:13px;color:#9fb0c8;margin-bottom:3px;">Email</div><div style="font-family:var(--font-mono);font-size:14px;color:#fff;">hello@stere.io</div></div>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:14px;">
+                  <span style="flex:none;display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:10px;background:rgba(111,249,255,.12);color:var(--brand-cyan);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                  <div><div style="font-size:13px;color:#9fb0c8;margin-bottom:3px;">Offices</div><div style="font-size:14px;color:#fff;line-height:1.5;">New York · São Paulo · Singapore</div></div>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <span style="display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border:1px solid rgba(255,255,255,.18);border-radius:6px;font:var(--type-mono-sm);color:#cdd8e8;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>SOC 2</span>
+                <span style="display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border:1px solid rgba(255,255,255,.18);border-radius:6px;font:var(--type-mono-sm);color:#cdd8e8;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>ISO 27001:2022</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:var(--bg-page);border-top:1px solid var(--border-default);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,48px) 40px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 32px;">
+        <div style="grid-column:auto;min-width:220px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <span style="display:inline-block;width:22px;height:28px;background:var(--fg-default);-webkit-mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+            <span style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.03em;">Stere</span>
+          </div>
+          <p style="font-size:13.5px;line-height:1.55;color:var(--fg-muted);margin:0 0 18px;max-width:34ch;">The API- and AI-enabled Insurance Platform-as-a-Service.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--border-default);border-radius:6px;font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>SOC 2</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--border-default);border-radius:6px;font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>ISO 27001:2022</span>
+          </div>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Solutions</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="MGAs.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">MGAs</a></li>
+            <li><a href="MGA-Aggregators.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">MGA Aggregators</a></li>
+            <li><a href="Carriers.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Carriers</a></li>
+            <li><a href="Mutuals.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Mutuals</a></li>
+            <li><a href="Distribution-Platforms.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Distribution Platforms</a></li>
+            <li><a href="Autonomous-Agents.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Autonomous Agents</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Company</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="Insights.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Insights</a></li>
+            <li><a href="About-Us.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">About us</a></li>
+            <li><a href="Contact.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Support</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="Terms-of-Use.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Terms of Use</a></li>
+            <li><a href="Privacy-Policy.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Privacy Policy</a></li>
+            <li><a href="Information-Security.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Information &amp; Security</a></li>
+            <li><a href="Master-Agreement.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Master Agreement</a></li>
+            <li><a href="Contact.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Contact us</a></li>
+            <li><a href="https://status.stere.io" style="display:inline-flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);"><span style="width:8px;height:8px;border-radius:50%;background:#10b981;animation:stere-pulse 1.6s var(--ease-out) infinite;"></span>Service Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-top:44px;padding-top:24px;border-top:1px solid var(--border-default);">
+        <span style="font-size:13px;color:var(--fg-subtle);">© 2026 Stere. All rights reserved.</span>
+        <span style="font-size:13px;color:var(--fg-subtle);">Built for humans and machines alike.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;}}">
+class Component extends DCLogic {
+  state = { isMobile: false, menu: null, mobileOpen: false, step: 0, role: '', sent: false, form: { name:'', company:'', email:'', phone:'', message:'' } };
+  pickRole = (r) => () => this.setState({ role: r, step: 1 });
+  setField = (k) => (e) => { const v = e.target.value; this.setState(s => ({ form: { ...s.form, [k]: v } })); };
+  next = () => this.setState(s => ({ step: Math.min(s.step + 1, 2) }));
+  back = () => this.setState(s => ({ step: Math.max(s.step - 1, 0) }));
+  submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
+
+  componentDidMount() {
+    document.documentElement.setAttribute('data-theme', 'light');
+    this._onResize = () => {
+      const m = window.innerWidth < 900;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m, mobileOpen: false });
+    };
+    this._onResize();
+    window.addEventListener('resize', this._onResize);
+
+    this._onScroll = () => {
+      const h = this._header; if (!h) return;
+      const scrolled = window.scrollY > 24;
+      if (scrolled) {
+        h.style.background = 'rgba(255,255,255,.72)';
+        h.style.backdropFilter = 'saturate(1.4) blur(12px)';
+        h.style.webkitBackdropFilter = 'saturate(1.4) blur(12px)';
+        h.style.borderBottomColor = 'var(--border-default)';
+      } else {
+        h.style.background = 'transparent';
+        h.style.backdropFilter = 'none';
+        h.style.webkitBackdropFilter = 'none';
+        h.style.borderBottomColor = 'transparent';
+      }
+    };
+    this._onScroll();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('scroll', this._onScroll); }
+  headerRef = (el) => { this._header = el; if (el && this._onScroll) this._onScroll(); };
+
+  renderVals() {
+    return {
+      headerRef: this.headerRef,
+      isMobile: this.state.isMobile,
+      desktopNav: !this.state.isMobile,
+      mobileMenu: this.state.isMobile && this.state.mobileOpen,
+      toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
+      solutionsOpen: this.state.menu === 'solutions',
+      companyOpen: this.state.menu === 'company',
+      openSolutions: () => this.setState({ menu: 'solutions' }),
+      openCompany: () => this.setState({ menu: 'company' }),
+      closeMenu: () => this.setState({ menu: null }),
+      notSent: !this.state.sent,
+      sent: this.state.sent,
+      isStep0: !this.state.sent && this.state.step===0,
+      isStep1: !this.state.sent && this.state.step===1,
+      isStep2: !this.state.sent && this.state.step===2,
+      stepNum: this.state.step + 1,
+      progress: ((this.state.step+1)/3*100) + '%',
+      roleLabel: this.state.role || '',
+      pickRole: this.pickRole,
+      roleCarrier: this.pickRole('Carrier'), roleMGA: this.pickRole('MGA'), roleAgg: this.pickRole('MGA Aggregator'), roleMutual: this.pickRole('Mutual'), roleDist: this.pickRole('Distribution Platform'), roleDev: this.pickRole('Developer or AI Agent'),
+      next: this.next, back: this.back, submit: this.submit,
+      onName: this.setField('name'), onCompany: this.setField('company'), onEmail: this.setField('email'), onPhone: this.setField('phone'), onMessage: this.setField('message'),
+      nameVal: this.state.form.name, companyVal: this.state.form.company, emailVal: this.state.form.email, phoneVal: this.state.form.phone, messageVal: this.state.form.message,
+    };
+  }
+}
+</script>
+</body>
+</html>

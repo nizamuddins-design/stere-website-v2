@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/colors_and_type.css">
+  <link rel="stylesheet" href="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/styles.css">
+  <script src="_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/_ds_bundle.js"></script>
+  <style>
+    body { margin:0; background:var(--bg-page); color:var(--fg-default); -webkit-font-smoothing:antialiased; }
+    * { box-sizing:border-box; }
+    a { color:var(--fg-accent); text-decoration:none; }
+    a:hover { text-decoration:none; }
+    @keyframes stere-pulse { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)} 70%{box-shadow:0 0 0 7px rgba(16,185,129,0)} 100%{box-shadow:0 0 0 0 rgba(16,185,129,0)} }
+    @keyframes stere-drift-a { 0%,100%{transform:translate(-6%,-4%) scale(1);} 50%{transform:translate(9%,7%) scale(1.18);} }
+    @keyframes stere-drift-b { 0%,100%{transform:translate(7%,8%) scale(1.12);} 50%{transform:translate(-9%,-7%) scale(1);} }
+    @keyframes stere-grid-drift { from{background-position:0 0;} to{background-position:0 46px;} }
+    @keyframes stere-scan { 0%{opacity:.0;transform:translateY(-30px);} 40%{opacity:.5;} 100%{opacity:0;transform:translateY(120px);} }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Stere for Carriers","about":"API-first middleware for carriers and large MGAs to wrap a legacy core and launch digital products without a rip-and-replace.","provider":{"@type":"Organization","name":"Stere","url":"https://stere.io"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Stere","url":"https://stere.io","hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"SOC 2"},{"@type":"EducationalOccupationalCredential","credentialCategory":"ISO 27001:2022"}]}</script>
+</helmet>
+
+<div style="font-family:var(--font-sans);">
+
+  <header ref="{{ headerRef }}" style="position:sticky;top:0;z-index:60;background:transparent;border-bottom:1px solid transparent;transition:background var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),backdrop-filter var(--dur-base) var(--ease-out);">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:66px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;color:var(--fg-default);">
+        <span style="display:inline-block;width:22px;height:28px;background:var(--fg-default);-webkit-mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.03em;">Stere</span>
+      </a>
+
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:4px;">
+        <a href="Platform.dc.html" style="color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Platform</a>
+
+        <div style="position:relative;" onMouseEnter="{{ openSolutions }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Home.dc.html#solutions" aria-current="page" style="display:inline-flex;align-items:center;gap:5px;color:var(--fg-default);font-size:14.5px;font-weight:600;padding:9px 14px;border-radius:6px;background:var(--bg-subtle);">Solutions
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <sc-if value="{{ solutionsOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;padding-top:6px;"><div style="width:288px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;">
+            <a href="MGAs.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">MGAs<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">The turnkey SaaS core</span></a>
+            <a href="MGA-Aggregators.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">MGA Aggregators<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">A shared technology core</span></a>
+            <a href="Carriers.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;background:var(--bg-subtle);">Carriers<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Wrap legacy cores, launch digital</span></a>
+            <a href="Mutuals.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Mutuals<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Modernize without disruption</span></a>
+            <a href="Distribution-Platforms.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Distribution Platforms<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Connect once, scale infinitely</span></a>
+            <a href="Autonomous-Agents.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Autonomous Agents<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Built for A2A workflows</span></a>
+          </div></div>
+          </sc-if>
+        </div>
+
+        <div style="position:relative;" onMouseEnter="{{ openCompany }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Home.dc.html#company" style="display:inline-flex;align-items:center;gap:5px;color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Company
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <sc-if value="{{ companyOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;padding-top:6px;"><div style="width:220px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;">
+            <a href="Insights.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Insights</a>
+            <a href="About-Us.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">About us</a>
+            <a href="Contact.dc.html" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Contact us</a>
+          </div></div>
+          </sc-if>
+        </div>
+      </nav>
+      </sc-if>
+
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="Demo.dc.html" style="display:inline-flex;align-items:center;gap:7px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:14.5px;padding:11px 18px;border-radius:6px;box-shadow:var(--shadow-sm);transition:transform var(--dur-fast) var(--ease-out);" style-hover="transform:translateY(-1px);">Request a demo</a>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMobile }}" aria-label="Menu" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--border-default);background:var(--bg-page);color:var(--fg-default);border-radius:8px;cursor:pointer;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="width:20px;height:20px;"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+
+    <sc-if value="{{ mobileMenu }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile" style="border-top:1px solid var(--border-default);padding:12px clamp(20px,5vw,48px) 20px;display:flex;flex-direction:column;gap:2px;background:var(--bg-page);">
+      <a href="Platform.dc.html" style="padding:11px 8px;color:var(--fg-default);font-weight:600;font-size:15px;">Platform</a>
+      <span style="padding:12px 8px 4px;font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);">Solutions</span>
+      <a href="MGAs.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">MGAs</a>
+      <a href="MGA-Aggregators.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">MGA Aggregators</a>
+      <a href="Carriers.dc.html" style="padding:9px 8px;color:var(--fg-default);font-size:14.5px;font-weight:600;">Carriers</a>
+      <a href="Mutuals.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Mutuals</a>
+      <a href="Distribution-Platforms.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Distribution Platforms</a>
+      <a href="Autonomous-Agents.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Autonomous Agents</a>
+      <span style="padding:12px 8px 4px;font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);">Company</span>
+      <a href="Insights.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Insights</a>
+      <a href="About-Us.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">About us</a>
+      <a href="Contact.dc.html" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Contact us</a>
+    </nav>
+    </sc-if>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section style="position:relative;overflow:hidden;background:var(--gradient-mesh);border-bottom:1px solid var(--border-default);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(64px,9vw,116px) clamp(20px,5vw,48px) clamp(52px,6vw,84px);">
+        <p style="font:var(--type-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--fg-accent);margin:0 0 20px;">Solutions · Carriers</p>
+        <h1 style="font-family:var(--font-display);font-weight:700;font-size:clamp(36px,5.2vw,64px);line-height:1.04;letter-spacing:-0.032em;color:var(--fg-default);max-width:18ch;margin:0;text-wrap:balance;">Innovate without the existential risk of a rip-and-replace.</h1>
+        <p style="font-size:clamp(17px,1.7vw,21px);line-height:1.5;color:var(--fg-muted);max-width:660px;margin:26px 0 0;text-wrap:pretty;">Insurers and large MGAs are paralyzed by technical debt. Stere is an API-first middleware layer that wraps securely around your legacy core — so you can launch digital products and enter new markets without ever touching your system of record.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 0;">
+          <a href="Demo.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:15.5px;padding:15px 26px;border-radius:6px;box-shadow:var(--shadow-md);transition:transform var(--dur-fast) var(--ease-out);" style-hover="transform:translateY(-1px);">Request a demo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="Platform.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--fg-default);font-weight:600;font-size:15.5px;padding:15px 24px;border-radius:6px;border:1px solid var(--border-strong);transition:transform var(--dur-fast) var(--ease-out);" style-hover="background:var(--bg-subtle);">See the platform</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW STERE ADDRESSES IT · 01 BUILD & UNDERWRITE -->
+    <section aria-label="How Stere addresses it" style="background:var(--bg-page);border-bottom:1px solid var(--border-default);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(36px,5vw,72px);align-items:center;">
+        <div>
+          <p style="font:var(--type-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-accent);margin:0 0 14px;">The approach · 01</p>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(27px,3.2vw,38px);line-height:1.1;letter-spacing:-0.025em;margin:0;">Build the product. Underwrite it properly.</h2>
+          <p style="font-size:16px;line-height:1.6;color:var(--fg-muted);margin:18px 0 0;max-width:46ch;">Configure new products on the low-code Product Builder — coverages, rating, forms and lifecycle events — then underwrite them in the UW Workbench, where rules and data enrichment run before a submission ever reaches an underwriter. No engineering backlog, no Excel raters.</p>
+          <ul style="list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;">
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>Low-code product &amp; rating configuration</li>
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>Automated triage, rules &amp; data enrichment</li>
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>New lines live in weeks, not years</li>
+          </ul>
+        </div>
+        <div>
+          <div style="border:1px solid var(--border-default);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-stere);background:var(--bg-page);">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--bg-muted);border-bottom:1px solid var(--border-default);">
+              <span style="width:9px;height:9px;border-radius:50%;background:#ff5f57;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#febc2e;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#28c840;"></span>
+              <span style="margin-left:8px;font:var(--type-mono-sm);color:var(--fg-subtle);">UW Workbench · Submission triage</span>
+            </div>
+            <img src="assets/shot-uw-workbench.png" alt="Stere Underwriting Workbench — submissions triaged by rules and enriched data before reaching an underwriter" style="display:block;width:100%;height:auto;" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW STERE ADDRESSES IT · 02 MIDDLEWARE & REAL-TIME SYNC -->
+    <section aria-label="Middleware and real-time sync" style="background:linear-gradient(180deg,var(--bg-subtle) 0%,var(--bg-page) 100%);border-bottom:1px solid var(--border-default);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(36px,5vw,72px);align-items:center;">
+        <div style="position:relative;overflow:hidden;border:1px solid rgba(111,249,255,.2);border-radius:16px;background:#06203b;box-shadow:0 14px 40px rgba(0,0,0,.4);padding:28px 24px;">
+          <div aria-hidden="true" style="position:absolute;inset:0;background-image:radial-gradient(rgba(111,249,255,.14) 1px,transparent 1.4px);background-size:22px 22px;-webkit-mask-image:radial-gradient(120% 90% at 50% 50%,#000 20%,transparent 74%);mask-image:radial-gradient(120% 90% at 50% 50%,#000 20%,transparent 74%);opacity:.5;"></div>
+          <div aria-hidden="true" style="position:absolute;left:50%;top:36%;width:74%;height:36%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(111,249,255,.24) 0%,transparent 70%);filter:blur(30px);"></div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 16px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);">
+              <span style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#cdd8e8;">All distribution channels</span>
+            </div>
+
+            <div style="position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 18px;border-radius:10px;background:linear-gradient(90deg,var(--brand-electric),var(--brand-violet));border:1px solid rgba(255,255,255,.22);box-shadow:0 8px 26px rgba(111,249,255,.24),inset 0 1px 0 rgba(255,255,255,.25);">
+              <div aria-hidden="true" style="position:absolute;left:10%;right:10%;top:0;height:2px;background:linear-gradient(90deg,transparent,rgba(111,249,255,.95),transparent);filter:blur(.5px);animation:stere-scan 5s var(--ease-out) infinite;"></div>
+              <span style="display:inline-flex;align-items:center;gap:9px;"><span style="display:inline-block;width:19px;height:24px;background:#fff;-webkit-mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;"></span><span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:#fff;letter-spacing:-0.01em;">Stere middleware</span></span>
+              <span style="display:inline-flex;align-items:center;gap:6px;font:var(--type-mono-sm);color:var(--brand-cyan);"><span style="width:6px;height:6px;border-radius:50%;background:#6ff9ff;box-shadow:0 0 8px rgba(111,249,255,.9);animation:stere-pulse 1.6s var(--ease-out) infinite;"></span>streaming</span>
+            </div>
+
+            <div style="display:flex;align-items:center;justify-content:center;gap:14px;padding:2px 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+              <span style="font:var(--type-mono-sm);color:var(--brand-cyan);">bidirectional · real time</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:7px;padding:13px 10px;border:1px dashed rgba(255,255,255,.22);border-radius:9px;background:rgba(255,255,255,.02);text-align:center;">
+                <span style="display:inline-flex;color:#9fb0c8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg></span>
+                <span style="font-size:12px;color:#cdd8e8;line-height:1.3;">Policy core</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:7px;padding:13px 10px;border:1px dashed rgba(255,255,255,.22);border-radius:9px;background:rgba(255,255,255,.02);text-align:center;">
+                <span style="display:inline-flex;color:#9fb0c8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 3 4-7"/></svg></span>
+                <span style="font-size:12px;color:#cdd8e8;line-height:1.3;">Finance &amp; ledger</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:7px;padding:13px 10px;border:1px dashed rgba(255,255,255,.22);border-radius:9px;background:rgba(255,255,255,.02);text-align:center;">
+                <span style="display:inline-flex;color:#9fb0c8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                <span style="font-size:12px;color:#cdd8e8;line-height:1.3;">Compliance</span>
+              </div>
+            </div>
+            <p style="margin:4px 0 0;font-size:12.5px;line-height:1.5;color:#6d7e98;">Your systems of record stay authoritative — and untouched.</p>
+          </div>
+        </div>
+        <div>
+          <p style="font:var(--type-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-accent);margin:0 0 14px;">The approach · 02</p>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(27px,3.2vw,38px);line-height:1.1;letter-spacing:-0.025em;margin:0;">Middleware, not rip-and-replace.</h2>
+          <p style="font-size:16px;line-height:1.6;color:var(--fg-muted);margin:18px 0 0;max-width:46ch;">Stere deploys as a middleware layer around the core you already run — no migration, no freeze on business as usual. Every quote, bind, endorsement and payment streams back to your policy core, finance systems and compliance tooling in real time, in whatever format they expect. And middleware is only one path: when you&rsquo;re ready, Stere can also become your core outright.</p>
+          <ul style="list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;">
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>Zero migration, zero disruption to the core</li>
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>Real-time feeds to policy, finance &amp; compliance systems</li>
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>Any format your systems of record require</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW STERE ADDRESSES IT · 03 APIS & DISTRIBUTION -->
+    <section aria-label="APIs and distribution" style="background:var(--bg-page);border-bottom:1px solid var(--border-default);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(36px,5vw,72px);align-items:center;">
+        <div>
+          <div style="border:1px solid var(--border-default);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-stere);background:var(--bg-page);">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--bg-muted);border-bottom:1px solid var(--border-default);">
+              <span style="width:9px;height:9px;border-radius:50%;background:#ff5f57;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#febc2e;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#28c840;"></span>
+              <span style="margin-left:8px;font:var(--type-mono-sm);color:var(--fg-subtle);">Agent portal · Broker distribution</span>
+            </div>
+            <img src="assets/shot-agent-portal.png" alt="Stere agent portal — the broker-facing distribution surface carriers launch on top of a legacy core" style="display:block;width:100%;height:auto;" loading="lazy">
+          </div>
+        </div>
+        <div>
+          <p style="font:var(--type-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-accent);margin:0 0 14px;">The approach · 03</p>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(27px,3.2vw,38px);line-height:1.1;letter-spacing:-0.025em;margin:0;">Then put it in front of every broker and distribution partner.</h2>
+          <p style="font-size:16px;line-height:1.6;color:var(--fg-muted);margin:18px 0 0;max-width:46ch;">Every product is exposed over REST and GraphQL APIs the moment it&rsquo;s live — and surfaced in a broker-facing Agent Portal for quoting and binding. Distribute through your own brokers, wholesalers and embedded partners, while every event writes back to your system of record in real time.</p>
+          <ul style="list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;">
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>REST &amp; GraphQL APIs over your existing core</li>
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>Agent Portal for broker quoting &amp; binding</li>
+            <li style="display:flex;gap:10px;font-size:14.5px;color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex:none;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>Real-time, bidirectional data sync</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE CARDS -->
+    <section aria-label="What you get" style="background:linear-gradient(180deg,var(--bg-subtle) 0%,var(--bg-page) 100%);border-bottom:1px solid var(--border-default);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,88px) clamp(20px,5vw,48px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
+          <article style="display:flex;flex-direction:column;gap:12px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:14px;box-shadow:var(--shadow-stere);padding:26px;">
+            <span style="display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:21px;height:21px;"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:-0.015em;margin:0;">API-first middleware</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:var(--fg-muted);margin:0;">A secure abstraction layer that exposes modern REST and GraphQL APIs over your existing core — no core replacement required.</p>
+          </article>
+          <article style="display:flex;flex-direction:column;gap:12px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:14px;box-shadow:var(--shadow-sm);padding:26px;">
+            <span style="display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px;background:var(--violet-50);color:var(--brand-violet);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:21px;height:21px;"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.7 1 6.3 2.7L21 8"/><path d="M21 3v5h-5"/></svg></span>
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:-0.015em;margin:0;">Legacy co-existence</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:var(--fg-muted);margin:0;">Deploy modern microservices on the edge while your system of record stays authoritative — kept in sync in real time.</p>
+          </article>
+          <article style="display:flex;flex-direction:column;gap:12px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:14px;box-shadow:var(--shadow-sm);padding:26px;">
+            <span style="display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:21px;height:21px;"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+            <h3 style="font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:-0.015em;margin:0;">New products &amp; markets</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:var(--fg-muted);margin:0;">Stand up new lines and distribution channels in weeks and reach segments your core could never support alone.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section aria-label="Case study" style="background:var(--bg-page);border-bottom:1px solid var(--border-default);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,48px);">
+        <div style="max-width:560px;margin:0 0 32px;">
+          <p style="font:var(--type-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-accent);margin:0 0 14px;">Case study</p>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-0.025em;margin:0;">Six products live — without years of internal build.</h2>
+        </div>
+        <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,56px);align-items:center;border:1px solid var(--border-default);border-radius:16px;box-shadow:var(--shadow-stere);background:var(--bg-elevated);padding:clamp(28px,4vw,44px);">
+          <div>
+            <div style="display:flex;align-items:center;gap:22px;margin-bottom:22px;">
+              <span role="img" aria-label="AIG" style="display:inline-block;height:30px;width:58px;background:var(--fg-muted);opacity:.85;-webkit-mask:url(assets/logo-aig.png) center/contain no-repeat;mask:url(assets/logo-aig.png) center/contain no-repeat;"></span>
+              <span style="width:1px;height:26px;background:var(--border-strong);"></span>
+              <span role="img" aria-label="Lockton" style="display:inline-block;height:34px;width:73px;background:var(--fg-muted);opacity:.85;-webkit-mask:url(assets/logo-lockton.png) center/contain no-repeat;mask:url(assets/logo-lockton.png) center/contain no-repeat;"></span>
+            </div>
+            <p style="font-size:clamp(17px,1.8vw,20px);line-height:1.5;color:var(--fg-default);margin:0;text-wrap:pretty;">Stere digitized six AIG products and enabled seamless API connectivity with Lockton's platform — bypassing years of internal development.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="padding:18px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-page);">
+              <div style="font-family:var(--font-mono);font-weight:700;font-size:28px;letter-spacing:-0.01em;color:var(--brand-electric);font-variant-numeric:tabular-nums;">6</div>
+              <div style="font-size:13px;color:var(--fg-muted);margin-top:4px;">products digitized</div>
+            </div>
+            <div style="padding:18px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-page);">
+              <div style="font-family:var(--font-mono);font-weight:700;font-size:28px;letter-spacing:-0.01em;color:var(--brand-electric);font-variant-numeric:tabular-nums;">0</div>
+              <div style="font-size:13px;color:var(--fg-muted);margin-top:4px;">core migrations</div>
+            </div>
+            <div style="padding:18px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-page);grid-column:1 / -1;">
+              <div style="font-family:var(--font-mono);font-weight:700;font-size:28px;letter-spacing:-0.01em;color:var(--brand-electric);font-variant-numeric:tabular-nums;">API</div>
+              <div style="font-size:13px;color:var(--fg-muted);margin-top:4px;">connectivity to Lockton, out of the box</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- URGENCY + CTA -->
+    <section aria-label="Get started" style="background:var(--brand-navy);position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:var(--gradient-mesh);opacity:.6;"></div>
+      <div aria-hidden="true" style="position:absolute;inset:0;background-image:radial-gradient(rgba(111,249,255,.16) 1px,transparent 1.4px);background-size:26px 26px;-webkit-mask-image:radial-gradient(120% 90% at 50% 40%,#000 30%,transparent 78%);mask-image:radial-gradient(120% 90% at 50% 40%,#000 30%,transparent 78%);opacity:.55;"></div>
+      <div aria-hidden="true" style="position:absolute;left:-8%;top:-30%;width:44%;height:120%;border-radius:50%;background:radial-gradient(circle,rgba(120,86,255,.5) 0%,transparent 68%);filter:blur(46px);animation:stere-drift-a 18s var(--ease-in-out,ease-in-out) infinite;"></div>
+      <div aria-hidden="true" style="position:absolute;right:-10%;bottom:-34%;width:48%;height:120%;border-radius:50%;background:radial-gradient(circle,rgba(111,249,255,.34) 0%,transparent 66%);filter:blur(52px);animation:stere-drift-b 22s var(--ease-in-out,ease-in-out) infinite;"></div>
+      <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:46%;background-image:linear-gradient(rgba(111,249,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(111,249,255,.16) 1px,transparent 1px);background-size:46px 46px;background-position:0 0;transform:perspective(340px) rotateX(64deg);transform-origin:bottom center;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);opacity:.4;animation:stere-grid-drift 3.6s linear infinite;"></div>
+      <div style="position:relative;max-width:900px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(20px,5vw,48px);text-align:center;">
+        <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(28px,3.8vw,46px);line-height:1.1;letter-spacing:-0.03em;color:#fff;margin:0;text-wrap:balance;">Legacy maintenance consumes 70% of IT budgets. Stop funding the past.</h2>
+        <p style="font-size:clamp(16px,1.7vw,19px);line-height:1.55;color:#9fb0c8;margin:18px auto 0;max-width:54ch;">Put that budget behind new products instead. See how Stere wraps your core and gets a digital line live — without a single migration.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin:32px 0 0;">
+          <a href="Demo.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:15.5px;padding:15px 28px;border-radius:6px;box-shadow:var(--shadow-lg);transition:transform var(--dur-fast) var(--ease-out);" style-hover="transform:translateY(-1px);">Request a demo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div style="display:flex;gap:8px;">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:12px 14px;border:1px solid rgba(255,255,255,.18);border-radius:6px;font:var(--type-mono-sm);color:#cdd8e8;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>SOC 2</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:12px 14px;border:1px solid rgba(255,255,255,.18);border-radius:6px;font:var(--type-mono-sm);color:#cdd8e8;"><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>ISO 27001:2022</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:var(--bg-page);border-top:1px solid var(--border-default);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,48px) 40px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 32px;">
+        <div style="grid-column:auto;min-width:220px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <span style="display:inline-block;width:22px;height:28px;background:var(--fg-default);-webkit-mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+            <span style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.03em;">Stere</span>
+          </div>
+          <p style="font-size:13.5px;line-height:1.55;color:var(--fg-muted);margin:0 0 18px;max-width:34ch;">The API- and AI-enabled Insurance Platform-as-a-Service.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--border-default);border-radius:6px;font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>SOC 2</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--border-default);border-radius:6px;font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>ISO 27001:2022</span>
+          </div>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Solutions</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="MGAs.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">MGAs</a></li>
+            <li><a href="MGA-Aggregators.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">MGA Aggregators</a></li>
+            <li><a href="Carriers.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Carriers</a></li>
+            <li><a href="Mutuals.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Mutuals</a></li>
+            <li><a href="Distribution-Platforms.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Distribution Platforms</a></li>
+            <li><a href="Autonomous-Agents.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Autonomous Agents</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Company</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="Insights.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Insights</a></li>
+            <li><a href="About-Us.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">About us</a></li>
+            <li><a href="Contact.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Support</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="Terms-of-Use.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Terms of Use</a></li>
+            <li><a href="Privacy-Policy.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Privacy Policy</a></li>
+            <li><a href="Information-Security.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Information &amp; Security</a></li>
+            <li><a href="Master-Agreement.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Master Agreement</a></li>
+            <li><a href="Contact.dc.html" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Contact us</a></li>
+            <li><a href="https://status.stere.io" style="display:inline-flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);"><span style="width:8px;height:8px;border-radius:50%;background:#10b981;animation:stere-pulse 1.6s var(--ease-out) infinite;"></span>Service Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-top:44px;padding-top:24px;border-top:1px solid var(--border-default);">
+        <span style="font-size:13px;color:var(--fg-subtle);">© 2026 Stere. All rights reserved.</span>
+        <span style="font-size:13px;color:var(--fg-subtle);">Built for humans and machines alike.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;}}">
+class Component extends DCLogic {
+  state = { isMobile: false, menu: null, mobileOpen: false };
+
+  componentDidMount() {
+    document.documentElement.setAttribute('data-theme', 'light');
+    this._onResize = () => {
+      const m = window.innerWidth < 900;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m, mobileOpen: false });
+    };
+    this._onResize();
+    window.addEventListener('resize', this._onResize);
+
+    this._onScroll = () => {
+      const h = this._header; if (!h) return;
+      const scrolled = window.scrollY > 24;
+      if (scrolled) {
+        h.style.background = 'rgba(255,255,255,.72)';
+        h.style.backdropFilter = 'saturate(1.4) blur(12px)';
+        h.style.webkitBackdropFilter = 'saturate(1.4) blur(12px)';
+        h.style.borderBottomColor = 'var(--border-default)';
+      } else {
+        h.style.background = 'transparent';
+        h.style.backdropFilter = 'none';
+        h.style.webkitBackdropFilter = 'none';
+        h.style.borderBottomColor = 'transparent';
+      }
+    };
+    this._onScroll();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('scroll', this._onScroll); }
+  headerRef = (el) => { this._header = el; if (el && this._onScroll) this._onScroll(); };
+
+  renderVals() {
+    return {
+      headerRef: this.headerRef,
+      isMobile: this.state.isMobile,
+      desktopNav: !this.state.isMobile,
+      mobileMenu: this.state.isMobile && this.state.mobileOpen,
+      toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
+      solutionsOpen: this.state.menu === 'solutions',
+      companyOpen: this.state.menu === 'company',
+      openSolutions: () => this.setState({ menu: 'solutions' }),
+      openCompany: () => this.setState({ menu: 'company' }),
+      closeMenu: () => this.setState({ menu: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>
