@@ -1,0 +1,7 @@
+/* =============================================================
+   STERE DESIGN SYSTEM — Canonical stylesheet entry point
+   Import this from any new file. It pulls in every design token
+   (color, type, spacing, radii, shadows, motion) and the
+   self-hosted brand @font-face declarations from colors_and_type.css.
+   ============================================================= */
+@import url('colors_and_type.css');

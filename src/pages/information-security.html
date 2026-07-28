@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script is:inline src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/colors_and_type.css">
+  <link rel="stylesheet" href="/_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/styles.css">
+  <script is:inline src="/_ds/stere-design-system-438e0f9f-b0ce-4734-86e1-0f32da150e05/_ds_bundle.js"></script>
+  <style>
+    body { margin:0; background:var(--bg-page); color:var(--fg-default); -webkit-font-smoothing:antialiased; }
+    * { box-sizing:border-box; }
+    a { color:var(--fg-accent); text-decoration:none; }
+    a:hover { text-decoration:none; }
+    @keyframes stere-pulse { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)} 70%{box-shadow:0 0 0 7px rgba(16,185,129,0)} 100%{box-shadow:0 0 0 0 rgba(16,185,129,0)} }
+    @keyframes stere-drift-a { 0%,100%{transform:translate(-6%,-4%) scale(1);} 50%{transform:translate(9%,7%) scale(1.18);} }
+    @keyframes stere-drift-b { 0%,100%{transform:translate(7%,8%) scale(1.12);} 50%{transform:translate(-9%,-7%) scale(1);} }
+    @keyframes stere-grid-drift { from{background-position:0 0;} to{background-position:0 46px;} }
+    @keyframes stere-scan { 0%{opacity:.0;transform:translateY(-30px);} 40%{opacity:.5;} 100%{opacity:0;transform:translateY(120px);} }
+  </style>
+  <script is:inline type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Stere Information Security Policy","about":"How Stere protects its systems, people and customer data, including SOC 2 and ISO 27001:2022 certification.","publisher":{"@type":"Organization","name":"Stere, Inc.","url":"https://stere.io"}}</script>
+  <script is:inline type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Stere","url":"https://stere.io","hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"SOC 2"},{"@type":"EducationalOccupationalCredential","credentialCategory":"ISO 27001:2022"}]}</script>
+</helmet>
+
+<div style="font-family:var(--font-sans);">
+
+  <header ref="{{ headerRef }}" style="position:sticky;top:0;z-index:60;background:transparent;border-bottom:1px solid transparent;transition:background var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),backdrop-filter var(--dur-base) var(--ease-out);">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:66px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="/" style="display:flex;align-items:center;gap:10px;color:var(--fg-default);">
+        <span style="display:inline-block;width:22px;height:28px;background:var(--fg-default);-webkit-mask:url(/assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(/assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.03em;">Stere</span>
+      </a>
+
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:4px;">
+        <a href="/platform" style="color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Platform</a>
+
+        <div style="position:relative;" onMouseEnter="{{ openSolutions }}" onMouseLeave="{{ closeMenu }}">
+          <a href="/#solutions" style="display:inline-flex;align-items:center;gap:5px;color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Solutions
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <sc-if value="{{ solutionsOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;padding-top:6px;"><div style="width:288px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;">
+            <a href="/mgas" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">MGAs<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">The turnkey SaaS core</span></a>
+            <a href="/mga-aggregators" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">MGA Aggregators<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">A shared technology core</span></a>
+            <a href="/carriers" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Carriers<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Wrap legacy cores, launch digital</span></a>
+            <a href="/mutuals" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Mutuals<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Modernize without disruption</span></a>
+            <a href="/distribution-platforms" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Distribution Platforms<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Connect once, scale infinitely</span></a>
+            <a href="/autonomous-agents" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Autonomous Agents<span style="display:block;font-weight:400;font-size:12.5px;color:var(--fg-subtle);">Built for A2A workflows</span></a>
+          </div></div>
+          </sc-if>
+        </div>
+
+        <div style="position:relative;" onMouseEnter="{{ openCompany }}" onMouseLeave="{{ closeMenu }}">
+          <a href="/#company" style="display:inline-flex;align-items:center;gap:5px;color:var(--fg-muted);font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:6px;" style-hover="background:var(--bg-subtle);color:var(--fg-default);">Company
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <sc-if value="{{ companyOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:0;padding-top:6px;"><div style="width:220px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;display:flex;flex-direction:column;">
+            <a href="/insights" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Insights</a>
+            <a href="/about-us" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">About us</a>
+            <a href="/contact" style="padding:10px 12px;border-radius:8px;color:var(--fg-default);font-size:14px;font-weight:500;" style-hover="background:var(--bg-subtle);">Contact us</a>
+          </div></div>
+          </sc-if>
+        </div>
+      </nav>
+      </sc-if>
+
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="/demo" style="display:inline-flex;align-items:center;gap:7px;background:var(--brand-electric);color:#fff;font-weight:600;font-size:14.5px;padding:11px 18px;border-radius:6px;box-shadow:var(--shadow-sm);transition:transform var(--dur-fast) var(--ease-out);" style-hover="transform:translateY(-1px);">Request a demo</a>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMobile }}" aria-label="Menu" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--border-default);background:var(--bg-page);color:var(--fg-default);border-radius:8px;cursor:pointer;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="width:20px;height:20px;"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+
+    <sc-if value="{{ mobileMenu }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile" style="border-top:1px solid var(--border-default);padding:12px clamp(20px,5vw,48px) 20px;display:flex;flex-direction:column;gap:2px;background:var(--bg-page);">
+      <a href="/platform" style="padding:11px 8px;color:var(--fg-default);font-weight:600;font-size:15px;">Platform</a>
+      <span style="padding:12px 8px 4px;font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);">Solutions</span>
+      <a href="/mgas" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">MGAs</a>
+      <a href="/mga-aggregators" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">MGA Aggregators</a>
+      <a href="/carriers" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Carriers</a>
+      <a href="/mutuals" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Mutuals</a>
+      <a href="/distribution-platforms" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Distribution Platforms</a>
+      <a href="/autonomous-agents" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Autonomous Agents</a>
+      <span style="padding:12px 8px 4px;font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);">Company</span>
+      <a href="/insights" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Insights</a>
+      <a href="/about-us" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">About us</a>
+      <a href="/contact" style="padding:9px 8px;color:var(--fg-muted);font-size:14.5px;">Contact us</a>
+    </nav>
+    </sc-if>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section style="position:relative;overflow:hidden;background:var(--gradient-mesh);border-bottom:1px solid var(--border-default);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,7vw,88px) clamp(20px,5vw,48px) clamp(36px,4.5vw,56px);">
+        <p style="font:var(--type-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:var(--fg-accent);margin:0 0 18px;">Trust</p>
+        <h1 style="font-family:var(--font-display);font-weight:700;font-size:clamp(32px,4.4vw,52px);line-height:1.06;letter-spacing:-0.032em;color:var(--fg-default);margin:0;">Information &amp; Security</h1>
+        <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.55;color:var(--fg-muted);max-width:58ch;margin:20px 0 0;text-wrap:pretty;">How Stere protects its systems, its people and our customers&rsquo; data.</p>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:22px 0 0;">
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border-default);border-radius:999px;background:var(--bg-elevated);font:var(--type-mono-sm);color:var(--fg-muted);">Last updated May 10, 2026</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border-default);border-radius:999px;background:var(--bg-elevated);font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>SOC 2 Type II</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border-default);border-radius:999px;background:var(--bg-elevated);font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>ISO 27001:2022</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section aria-label="Information Security Policy" style="background:var(--bg-page);">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,48px) clamp(56px,7vw,96px);display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,64px);align-items:flex-start;">
+        <aside style="flex:0 1 240px;min-width:0;position:{{ asidePos }};top:86px;">
+          <p style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 12px;">Contents</p>
+          <nav aria-label="Section navigation" style="display:flex;flex-direction:column;gap:2px;">
+            <a href="#overview" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">1</span><span>Overview</span></a>
+            <a href="#purpose" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">2</span><span>Purpose</span></a>
+            <a href="#scope" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">3</span><span>Scope</span></a>
+            <a href="#certifications" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">4</span><span>Certifications and assurance</span></a>
+            <a href="#incident-reporting" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">5</span><span>Security incident reporting</span></a>
+            <a href="#device-security" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">6</span><span>Device security</span></a>
+            <a href="#remote-access" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">7</span><span>Remote access</span></a>
+            <a href="#acceptable-use" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">8</span><span>Acceptable use</span></a>
+            <a href="#compliance" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">9</span><span>Policy compliance</span></a>
+            <a href="#enforcement" style="display:flex;gap:10px;padding:7px 10px;border-radius:7px;color:var(--fg-muted);font-size:13.5px;line-height:1.4;" style-hover="background:var(--bg-subtle);color:var(--fg-default);"><span style="font-family:var(--font-mono);font-size:12px;color:var(--fg-subtle);flex:none;">10</span><span>Violations and enforcement</span></a>
+          </nav>
+        </aside>
+        <div style="flex:1 1 480px;min-width:0;max-width:720px;">
+        <section id="overview" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">1</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Overview</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">This Information Security Policy sets out how Stere protects its people, its partners and its customers&rsquo; data from illegal or damaging actions, whether intentional or accidental.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere&rsquo;s systems — computing equipment, software, operating systems, storage, and network accounts providing email, web access and file transfer — are company property, provided for business purposes in serving the interests of Stere and our customers.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Effective security is a team effort. Every Stere employee and contractor who handles information or information systems is responsible for understanding this policy and working in line with it.</p>
+        </section>
+        <section id="purpose" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">2</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Purpose</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">This policy communicates our information security principles and sets out the acceptable use and protection of Stere&rsquo;s information and assets. These rules exist to protect our customers, our employees and Stere itself. Inappropriate use exposes the company to risks including malware, compromise of network systems and services, and legal and compliance exposure.</p>
+        </section>
+        <section id="scope" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">3</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Scope</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">This policy applies to the use of information, electronic and computing devices, and network resources used to conduct Stere business or to interact with our internal networks and business systems — whether owned or leased by Stere, by an individual, or by a third party.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">It applies to all employees, contractors, consultants, temporary staff and other workers at Stere and its subsidiaries, including personnel affiliated with third parties, and to all Stere-controlled company and customer data as well as all equipment, systems, networks and software owned or leased by Stere.</p>
+        </section>
+        <section id="certifications" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">4</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Certifications and assurance</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere maintains an information security management system certified to recognized international standards, and is independently audited on an annual basis.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0 0 22px;">
+            <div style="display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-elevated);box-shadow:var(--shadow-stere);">
+              <span style="display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:21px;height:21px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <span style="font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--fg-default);">SOC 2 Type II</span>
+              <span style="font-size:13.5px;line-height:1.5;color:var(--fg-muted);">Security, availability and confidentiality, audited annually.</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-elevated);box-shadow:var(--shadow-sm);">
+              <span style="display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px;background:var(--electric-50);color:var(--brand-electric);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:21px;height:21px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <span style="font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--fg-default);">ISO 27001:2022</span>
+              <span style="font-size:13.5px;line-height:1.5;color:var(--fg-muted);">Certified information security management system.</span>
+            </div>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Customer data is encrypted in transit and at rest, access is role-based and reviewed regularly, and multi-factor authentication is enforced across our systems. To request our current reports or discuss our security program, contact <a href="mailto:security@stere.io" style="color:var(--brand-electric);font-weight:500;font-family:var(--font-mono);">security@stere.io</a>.</p>
+        </section>
+        <section id="incident-reporting" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">5</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Security incident reporting</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Everyone is required to report known or suspected security events and incidents, including policy violations and observed weaknesses. Report immediately, or as soon as possible, by email — describing the incident or observation along with any relevant details.</p>
+          <div style="display:flex;gap:14px;padding:20px 22px;border:1px solid var(--border-default);border-radius:12px;background:var(--bg-subtle);margin:0 0 22px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-electric)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex:none;margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <p style="font-size:14.5px;line-height:1.65;color:var(--fg-default);margin:0;"><strong>Report a security concern:</strong> <a href="mailto:security@stere.io" style="color:var(--brand-electric);font-weight:500;font-family:var(--font-mono);">security@stere.io</a></p>
+          </div>
+        </section>
+        <section id="device-security" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">6</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Device security</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">All end-user devices — phones, tablets, laptops and desktops — must comply with this policy, whether company-owned or personal devices used for work. Take particular care with email attachments from unknown senders.</p>
+          <ul style="list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Devices must be encrypted and locked automatically after a short period of inactivity, and locked whenever left unattended.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Suspected misuse, loss or theft of a device must be reported immediately.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Confidential information must not be stored on personal devices or removable media.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Devices used to access company systems must not be shared with anyone else.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>On termination, company devices must be returned and all company information and accounts removed from personal devices.</span></li>
+          </ul>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">System- and user-level passwords must meet our access control standards. Sharing access with another person, deliberately or by failing to secure it, is prohibited.</p>
+        </section>
+        <section id="remote-access" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">7</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Remote access</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Devices used to reach the Stere network must meet the security requirements set out in this policy:</p>
+          <ul style="list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Connect only with an up-to-date software firewall in place, and never disable required security controls such as firewalls or endpoint protection.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Use only company-provided remote access services, configured with multi-factor authentication. Unauthorized remote access tools may not be installed on any Stere system.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Use encrypted connections when transmitting confidential information over public networks.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Avoid public or shared computers. If unavoidable, do not save credentials, log out of the session, and delete any downloaded files.</span></li>
+          </ul>
+        </section>
+        <section id="acceptable-use" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">8</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Acceptable use</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere proprietary and customer information stored on any device — company, personal or third-party — remains the property of Stere for the purposes of this policy. Employees and contractors must protect that information through appropriate legal and technical means, and must store business documents in approved company systems rather than only locally.</p>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">You are responsible for promptly reporting theft, loss or unauthorized disclosure of Stere proprietary information, and may access, use or share it only as authorized and necessary to do your job. For security and network maintenance purposes, authorized personnel may monitor equipment, systems and network traffic at any time, and Stere may audit networks and systems periodically to verify compliance.</p>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:-0.015em;margin:26px 0 12px;color:var(--fg-default);">Unacceptable use</h3>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">No one at Stere is authorized to engage in activity that is illegal under local, state, federal or international law while using company resources. The following are prohibited without exception. This list is not exhaustive; employees may be exempted only where a restriction conflicts with their legitimate job responsibilities.</p>
+          <ul style="list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Infringing copyright, trade secret, patent or other intellectual property rights — including installing or distributing unlicensed software.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Accessing data, servers or accounts for any purpose other than conducting Stere business, even where you have authorized access.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Exporting software, technical information or encryption technology in violation of export control laws.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Introducing malicious code into any network or system.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Sharing your password or allowing anyone else to use your account.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Using company assets to procure or transmit material that violates harassment or hostile-workplace laws.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Making fraudulent offers, or statements of warranty outside your normal job duties, from a Stere account.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Causing security breaches or disruption of network communication — including accessing data you are not the intended recipient of, unauthorized scanning, network monitoring, circumventing authentication, or denial-of-service activity.</span></li>
+            <li style="display:flex;gap:11px;font-size:15px;line-height:1.65;color:var(--fg-muted);"><span style="flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand-electric);margin-top:9px;"></span><span>Disclosing information about Stere employees, contractors, partners or customers outside the company without authorization.</span></li>
+          </ul>
+          <h3 style="font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:-0.015em;margin:26px 0 12px;color:var(--fg-default);">Email and communications</h3>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">When using company resources online, you represent Stere and should act accordingly. Sending unsolicited bulk or advertising email, harassment of any kind, forging email headers, harvesting addresses, and chain or pyramid schemes are prohibited without exception.</p>
+        </section>
+        <section id="compliance" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">9</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Policy compliance</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Stere measures and verifies compliance with this policy through a range of methods, including business tool reporting and both internal and external audits.</p>
+        </section>
+        <section id="enforcement" style="scroll-margin-top:90px;padding:0 0 clamp(32px,4vw,44px);">
+          <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 18px;">
+            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--brand-electric);font-variant-numeric:tabular-nums;">10</span>
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(21px,2.3vw,26px);line-height:1.2;letter-spacing:-0.022em;margin:0;color:var(--fg-default);">Violations and enforcement</h2>
+          </div>
+          <p style="font-size:15.5px;line-height:1.7;color:var(--fg-muted);margin:0 0 18px;text-wrap:pretty;">Known violations of this policy should be reported to the Head of Security. Violations can result in immediate withdrawal or suspension of system and network privileges, and disciplinary action in accordance with company procedures up to and including termination of employment.</p>
+        </section>
+          <div style="margin-top:clamp(16px,2vw,24px);padding:clamp(24px,3vw,32px);border:1px solid var(--border-default);border-radius:16px;background:var(--bg-elevated);box-shadow:var(--shadow-stere);">
+            <h2 style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.02em;margin:0 0 10px;color:var(--fg-default);">Security questions</h2>
+            <p style="font-size:15px;line-height:1.65;color:var(--fg-muted);margin:0 0 18px;">To report a vulnerability, request our SOC 2 report, or review our security program with your team, get in touch.</p>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <span style="font-size:14px;font-weight:600;color:var(--fg-default);">Stere, Inc.</span>
+              <a href="mailto:security@stere.io" style="font-family:var(--font-mono);font-size:14px;color:var(--brand-electric);">security@stere.io</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:var(--bg-page);border-top:1px solid var(--border-default);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,48px) 40px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 32px;">
+        <div style="grid-column:auto;min-width:220px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <span style="display:inline-block;width:22px;height:28px;background:var(--fg-default);-webkit-mask:url(/assets/logo-stere-mark.svg) center/contain no-repeat;mask:url(/assets/logo-stere-mark.svg) center/contain no-repeat;"></span>
+            <span style="font-family:var(--font-display);font-weight:600;font-size:21px;letter-spacing:-0.03em;">Stere</span>
+          </div>
+          <p style="font-size:13.5px;line-height:1.55;color:var(--fg-muted);margin:0 0 18px;max-width:34ch;">The API- and AI-enabled Insurance Platform-as-a-Service.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--border-default);border-radius:6px;font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>SOC 2</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--border-default);border-radius:6px;font:var(--type-mono-sm);color:var(--fg-muted);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--status-success-fg)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>ISO 27001:2022</span>
+          </div>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Solutions</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="/mgas" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">MGAs</a></li>
+            <li><a href="/mga-aggregators" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">MGA Aggregators</a></li>
+            <li><a href="/carriers" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Carriers</a></li>
+            <li><a href="/mutuals" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Mutuals</a></li>
+            <li><a href="/distribution-platforms" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Distribution Platforms</a></li>
+            <li><a href="/autonomous-agents" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Autonomous Agents</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Company</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="/insights" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Insights</a></li>
+            <li><a href="/about-us" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">About us</a></li>
+            <li><a href="/contact" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Contact us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font:var(--type-eyebrow);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-subtle);margin:0 0 16px;">Support</h4>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;">
+            <li><a href="/terms-of-use" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Terms of Use</a></li>
+            <li><a href="/privacy-policy" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Privacy Policy</a></li>
+            <li><a href="/information-security" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Information &amp; Security</a></li>
+            <li><a href="/master-agreement" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Master Agreement</a></li>
+            <li><a href="/contact" style="color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);">Contact us</a></li>
+            <li><a href="https://status.stere.io" style="display:inline-flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:14px;" style-hover="color:var(--fg-default);"><span style="width:8px;height:8px;border-radius:50%;background:#10b981;animation:stere-pulse 1.6s var(--ease-out) infinite;"></span>Service Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-top:44px;padding-top:24px;border-top:1px solid var(--border-default);">
+        <span style="font-size:13px;color:var(--fg-subtle);">© 2026 Stere. All rights reserved.</span>
+        <span style="font-size:13px;color:var(--fg-subtle);">Built for humans and machines alike.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script is:inline type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;}}">
+class Component extends DCLogic {
+  state = { isMobile: false, menu: null, mobileOpen: false };
+  componentDidMount() {
+    document.documentElement.setAttribute('data-theme', 'light');
+    this._onResize = () => {
+      const m = window.innerWidth < 900;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m, mobileOpen: false });
+    };
+    this._onResize();
+    window.addEventListener('resize', this._onResize);
+
+    this._onScroll = () => {
+      const h = this._header; if (!h) return;
+      const scrolled = window.scrollY > 24;
+      if (scrolled) {
+        h.style.background = 'rgba(255,255,255,.72)';
+        h.style.backdropFilter = 'saturate(1.4) blur(12px)';
+        h.style.webkitBackdropFilter = 'saturate(1.4) blur(12px)';
+        h.style.borderBottomColor = 'var(--border-default)';
+      } else {
+        h.style.background = 'transparent';
+        h.style.backdropFilter = 'none';
+        h.style.webkitBackdropFilter = 'none';
+        h.style.borderBottomColor = 'transparent';
+      }
+    };
+    this._onScroll();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); window.removeEventListener('scroll', this._onScroll); }
+  headerRef = (el) => { this._header = el; if (el && this._onScroll) this._onScroll(); };
+
+  renderVals() {
+    return {
+      headerRef: this.headerRef,
+      asidePos: this.state.isMobile ? 'static' : 'sticky',
+      isMobile: this.state.isMobile,
+      desktopNav: !this.state.isMobile,
+      mobileMenu: this.state.isMobile && this.state.mobileOpen,
+      toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
+      solutionsOpen: this.state.menu === 'solutions',
+      companyOpen: this.state.menu === 'company',
+      openSolutions: () => this.setState({ menu: 'solutions' }),
+      openCompany: () => this.setState({ menu: 'company' }),
+      closeMenu: () => this.setState({ menu: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>
